@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MallPulse - Select a Mall</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero" id="top">
+        <div class="hero-image-container">
+            <img src="{{ url_for('static', filename='images/landing_hero.png') }}" class="hero-image" alt="MallPulse Hero Image">
+        </div>
+        <div class="hero-bottom-content">
+            <button class="hero-cta" onclick="document.getElementById('mall-selector').scrollIntoView();">Check My Mall Now →</button>
+        </div>
+    </section>
+
+    <!-- FEATURE PILLS SECTION -->
+    <section class="features">
+        <h2 class="features-title">Everything you need for a stress-free shopping trip</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📍</div>
+                <h3>Live Crowd Data</h3>
+                <p>See exactly how busy every store is before you leave home</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🗺️</div>
+                <h3>Smart Visit Planning</h3>
+                <p>We tell you the best order to visit stores and save your time</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3>Crowd Alerts</h3>
+                <p>Get notified the moment your favourite store quiets down</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MALL SELECTOR SECTION -->
+    <section class="mall-selector-section" id="mall-selector">
+        <h2>🏬 Select Your Mall</h2>
+        <p class="selector-subtitle">Choose a mall to see live crowd levels right now</p>
+        
+        <input type="text" id="mall-search" class="mall-search" placeholder="🔍 Search for your mall...">
+        
+        <div class="mall-grid" id="mall-grid">
+            <div class="skeleton-card" style="height: 250px; border-radius: 16px;"></div>
+        </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <section class="trust-bar">
+        <div class="trust-item">
+            <div class="trust-icon">🏬</div>
+            <div class="trust-text">
+                <div class="trust-number">2+ Malls</div>
+                <div class="trust-desc">and growing</div>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">⏱</div>
+            <div class="trust-text">
+                <div class="trust-number">60 sec</div>
+                <div class="trust-desc">data refresh rate</div>
+            </div>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon">🆓</div>
+            <div class="trust-text">
+                <div class="trust-number">Free</div>
+                <div class="trust-desc">no sign up needed</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-title">🏬 MallPulse — Shop Smarter, Skip the Crowds</div>
+        <div class="footer-subtitle">Made for everyday shoppers 🛍️</div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', fetchMalls);
+
+        let allMalls = [];
+
+        async function fetchMalls() {
+            try {
+                const res = await fetch('/api/malls');
+                allMalls = await res.json();
+                renderMalls(allMalls);
+            } catch (error) {
+                console.error("Error fetching malls:", error);
+                document.getElementById('mall-grid').innerHTML = '<div style="text-align:center; grid-column: 1/-1; padding: 20px;">Failed to load malls.</div>';
+            }
+        }
+
+        function renderMalls(mallsToRender) {
+            const grid = document.getElementById('mall-grid');
+            grid.innerHTML = '';
+            
+            if (mallsToRender.length === 0) {
+                grid.innerHTML = '<div style="text-align:center; grid-column: 1/-1;">No malls found matching your search.</div>';
+                return;
+            }
+
+            mallsToRender.forEach(mall => {
+                let statusText = '🟢 Quiet — Great time to visit';
+                if(mall.color === 'orange') statusText = '🟡 Moderate — Some stores busy';
+                if(mall.color === 'red') statusText = '🔴 Busy — Plan your visit carefully';
+
+                const card = document.createElement('div');
+                card.className = 'mall-card';
+                card.onclick = () => selectMall(mall.mall_name);
+
+                card.innerHTML = `
+                    <div class="mall-name">${mall.mall_name}</div>
+                    <div class="mall-location">📍 ${mall.location || ''}</div>
+                    <div class="mall-status bg-${mall.color}">${statusText}</div>
+                    <div class="mall-stats" style="margin-top: 12px; font-weight: 500;">👥 ${mall.current_total_people} people right now</div>
+                    <div class="mall-stats">🏢 ${mall.total_floors} floors &nbsp;|&nbsp; 🏪 ${mall.total_stalls} stores</div>
+                    <div class="mall-stats" style="font-size: 13px; margin-top: 8px;">🔇 Quietest: <b>${mall.quietest_store}</b></div>
+                    <button class="mall-btn">View Live Dashboard →</button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        document.getElementById('mall-search').addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase();
+            const filtered = allMalls.filter(m => m.mall_name.toLowerCase().includes(term) || (m.location && m.location.toLowerCase().includes(term)));
+            renderMalls(filtered);
+        });
+
+        function selectMall(mallName) {
+            localStorage.setItem('mallpulse_selected_mall', mallName);
+            localStorage.setItem('mallpulse_visited', 'true');
+            window.location.href = '/dashboard';
+        }
+    </script>
+</body>
+</html>

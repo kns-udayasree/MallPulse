@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MallPulse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <script>
+        if (!localStorage.getItem('mallpulse_visited')) {
+            window.location.href = '/';
+        }
+        if(localStorage.getItem('mallpulse_darkmode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    <!-- 1. TOP NAV BAR -->
+    <header class="top-nav">
+        <div class="nav-content">
+            <div class="nav-left" style="display: flex; align-items: baseline; gap: 12px;">
+                <span class="logo">🏢 MallPulse</span>
+                <a href="/" style="font-size: 0.85rem; color: var(--teal); text-decoration: none; font-weight: 500; white-space: nowrap;">Change Mall →</a>
+            </div>
+            <div class="nav-right">
+                <button class="icon-btn" onclick="location.href='/alerts'" style="position: relative;">
+                    🔔
+                    <span id="nav-alert-badge" style="display: none; position: absolute; top: -2px; right: -2px; width: 10px; height: 10px; background: red; border-radius: 50%; border: 2px solid var(--card-bg);"></span>
+                </button>
+                <button class="icon-btn" onclick="location.href='/settings'">⚙️</button>
+            </div>
+        </div>
+        <div class="subtitle" id="mall-subtitle">
+            <span class="skeleton skeleton-text"></span>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 2. MALL HEALTH HERO CARD -->
+        <section id="hero-card" class="hero-card skeleton-card">
+            <div class="hero-content" style="display: none;">
+                <div class="hero-emoji" id="hero-emoji">🟢</div>
+                <h1 id="hero-heading">Loading...</h1>
+                <p id="hero-subtext">Loading people across all floors</p>
+                <div class="hero-pills">
+                    <span class="pill" id="hero-time">⏱ Avg -- min</span>
+                    <span class="pill">🕐 Updated just now</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. BEST TIME TO VISIT BAR -->
+        <section class="best-time-section">
+            <h2>🕐 Best time to visit today</h2>
+            <div id="best-time-bars" class="time-bars-container">
+                <!-- Bars injected here -->
+                <div class="skeleton skeleton-text"></div>
+            </div>
+            <p id="quietest-window" class="quietest-text"></p>
+        </section>
+
+        <!-- 4. FLOOR OVERVIEW STRIP -->
+        <section class="floor-strip-section">
+            <div class="floor-strip" id="floor-strip">
+                <!-- Floor cards injected here -->
+            </div>
+        </section>
+
+        <!-- 5. STALL CARDS GRID -->
+        <section class="stalls-section" id="stalls-section">
+            <!-- Stall grids injected here grouped by floor -->
+            <div class="skeleton-grid">
+                <div class="skeleton skeleton-card" style="height: 120px;"></div>
+                <div class="skeleton skeleton-card" style="height: 120px;"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FLOATING ACTION BUTTON -->
+    <button class="fab">🗺 Plan My Visit</button>
+
+    <!-- 7. PLAN MY VISIT WIZARD -->
+    <div id="wizard-overlay" class="wizard-overlay" style="display: none;">
+        <div class="wizard-container">
+            <div class="wizard-header">
+                <div class="wizard-progress">Step <span id="wizard-step-indicator">1</span> / 3</div>
+                <button class="wizard-close icon-btn" id="wizard-close-btn">❌</button>
+            </div>
+            
+            <div class="wizard-body">
+                <!-- STEP 1 -->
+                <div class="wizard-step active" id="wizard-step-1">
+                    <div class="step-content">
+                        <h2 class="wizard-title">Which stores are you visiting? 🛍️</h2>
+                        <p style="font-weight: 500; font-size: 0.95rem; margin-bottom: 4px;">Tap the stores you want to visit:</p>
+                        <p style="font-size: 0.8rem; color: var(--text-light); margin-bottom: 12px;">Tap to select, tap again to deselect</p>
+                        <div class="wizard-tabs">
+                            <button class="wizard-tab active" data-cat="all">All</button>
+                            <button class="wizard-tab" data-cat="food">🍔 Food</button>
+                            <button class="wizard-tab" data-cat="fashion">👗 Fashion</button>
+                            <button class="wizard-tab" data-cat="electronics">📱 Electronics</button>
+                            <button class="wizard-tab" data-cat="entertainment">🎮 Entertainment</button>
+                        </div>
+                        <div class="store-chips" id="wizard-store-chips">
+                            <!-- Store chips injected here -->
+                        </div>
+                    </div>
+                    <div class="wizard-footer">
+                        <div class="selected-count" id="wizard-selected-count">0 stores selected</div>
+                        <button class="btn-teal wizard-next" id="wizard-next-1" disabled>Next →</button>
+                    </div>
+                </div>
+
+                <!-- STEP 2 -->
+                <div class="wizard-step" id="wizard-step-2">
+                    <div class="step-content">
+                        <h2 class="wizard-title">When are you planning to visit? 🕐</h2>
+                        <div class="time-options">
+                            <div class="time-card" data-time="right_now" id="card-right-now">
+                                <div class="time-title">Right Now</div>
+                                <div class="time-sub"></div>
+                            </div>
+                            <div class="time-card" data-time="in_1_hour" id="card-1-hour">
+                                <div class="time-title">In 1 Hour</div>
+                                <div class="time-sub"></div>
+                            </div>
+                            <div class="time-card" data-time="in_2_hours" id="card-2-hours">
+                                <div class="time-title">In 2 Hours</div>
+                                <div class="time-sub"></div>
+                            </div>
+                            <div class="time-card" data-time="custom" id="card-custom">
+                                <div class="time-title">Choose a time</div>
+                                <select id="wizard-time-select" class="time-select">
+                                    <!-- Options injected here -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wizard-footer multi-btn">
+                        <button class="btn-secondary wizard-prev" onclick="wizardGoToStep(1)">← Back</button>
+                        <button class="btn-teal wizard-next" id="wizard-next-2" disabled>Next →</button>
+                    </div>
+                </div>
+
+                <!-- STEP 3 -->
+                <div class="wizard-step" id="wizard-step-3">
+                    <div class="step-content">
+                        <h2 class="wizard-title">Your Smart Visit Plan ✨</h2>
+                        <p class="wizard-subtitle">We've ordered your stores to save you the most time</p>
+                        <div class="plan-list" id="wizard-plan-list">
+                            <!-- Plan items injected here -->
+                        </div>
+                        <div class="plan-summary" id="wizard-plan-summary">
+                            🕐 Total estimated visit time: 0 minutes
+                        </div>
+                    </div>
+                    <div class="wizard-footer multi-btn">
+                        <button class="btn-secondary" onclick="wizardGoToStep(1)">← Change Stores</button>
+                        <button class="btn-teal" id="wizard-save-btn">💾 Save My Plan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast" class="toast">Plan saved!</div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

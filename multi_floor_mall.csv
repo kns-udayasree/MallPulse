@@ -1,0 +1,1201 @@
+mall_name,floor,time_slot,stall_id,x_coord,y_coord,stall_area,stall_population
+Inorbit Mall,0,10:00,Nike,20,20,54,26
+Inorbit Mall,0,10:00,Starbucks,90,30,235,27
+Inorbit Mall,0,10:00,Zara,30,10,299,32
+Inorbit Mall,0,10:00,McDonald's,60,40,274,35
+Inorbit Mall,0,10:00,Shoppers Stop,10,70,75,21
+Inorbit Mall,1,10:00,Apple Store,10,10,218,23
+Inorbit Mall,1,10:00,H&M,80,60,122,28
+Inorbit Mall,1,10:00,KFC,20,40,171,25
+Inorbit Mall,1,10:00,Titan,30,50,148,21
+Inorbit Mall,1,10:00,Westside,50,20,299,34
+Inorbit Mall,2,10:00,PVR Cinemas,50,10,82,35
+Inorbit Mall,2,10:00,Food Court,30,40,261,35
+Inorbit Mall,2,10:00,Adidas,10,20,262,16
+Inorbit Mall,2,10:00,Bata,90,50,116,28
+Inorbit Mall,2,10:00,Pantaloons,20,30,161,34
+Inorbit Mall,3,10:00,Timezone,70,30,108,33
+Inorbit Mall,3,10:00,Domino's,40,60,126,31
+Inorbit Mall,3,10:00,Van Heusen,10,50,133,23
+Inorbit Mall,3,10:00,Woodland,90,10,152,19
+Inorbit Mall,3,10:00,Croma,80,40,145,32
+Inorbit Mall,0,11:00,Nike,20,20,54,29
+Inorbit Mall,0,11:00,Starbucks,90,30,235,34
+Inorbit Mall,0,11:00,Zara,30,10,299,22
+Inorbit Mall,0,11:00,McDonald's,60,40,274,28
+Inorbit Mall,0,11:00,Shoppers Stop,10,70,75,20
+Inorbit Mall,1,11:00,Apple Store,10,10,218,29
+Inorbit Mall,1,11:00,H&M,80,60,122,35
+Inorbit Mall,1,11:00,KFC,20,40,171,35
+Inorbit Mall,1,11:00,Titan,30,50,148,29
+Inorbit Mall,1,11:00,Westside,50,20,299,17
+Inorbit Mall,2,11:00,PVR Cinemas,50,10,82,22
+Inorbit Mall,2,11:00,Food Court,30,40,261,17
+Inorbit Mall,2,11:00,Adidas,10,20,262,26
+Inorbit Mall,2,11:00,Bata,90,50,116,23
+Inorbit Mall,2,11:00,Pantaloons,20,30,161,24
+Inorbit Mall,3,11:00,Timezone,70,30,108,25
+Inorbit Mall,3,11:00,Domino's,40,60,126,34
+Inorbit Mall,3,11:00,Van Heusen,10,50,133,35
+Inorbit Mall,3,11:00,Woodland,90,10,152,33
+Inorbit Mall,3,11:00,Croma,80,40,145,26
+Inorbit Mall,0,12:00,Nike,20,20,54,27
+Inorbit Mall,0,12:00,Starbucks,90,30,235,35
+Inorbit Mall,0,12:00,Zara,30,10,299,16
+Inorbit Mall,0,12:00,McDonald's,60,40,274,17
+Inorbit Mall,0,12:00,Shoppers Stop,10,70,75,25
+Inorbit Mall,1,12:00,Apple Store,10,10,218,35
+Inorbit Mall,1,12:00,H&M,80,60,122,20
+Inorbit Mall,1,12:00,KFC,20,40,171,26
+Inorbit Mall,1,12:00,Titan,30,50,148,27
+Inorbit Mall,1,12:00,Westside,50,20,299,16
+Inorbit Mall,2,12:00,PVR Cinemas,50,10,82,25
+Inorbit Mall,2,12:00,Food Court,30,40,261,27
+Inorbit Mall,2,12:00,Adidas,10,20,262,35
+Inorbit Mall,2,12:00,Bata,90,50,116,21
+Inorbit Mall,2,12:00,Pantaloons,20,30,161,24
+Inorbit Mall,3,12:00,Timezone,70,30,108,30
+Inorbit Mall,3,12:00,Domino's,40,60,126,18
+Inorbit Mall,3,12:00,Van Heusen,10,50,133,26
+Inorbit Mall,3,12:00,Woodland,90,10,152,34
+Inorbit Mall,3,12:00,Croma,80,40,145,32
+Inorbit Mall,0,13:00,Nike,20,20,54,20
+Inorbit Mall,0,13:00,Starbucks,90,30,235,19
+Inorbit Mall,0,13:00,Zara,30,10,299,26
+Inorbit Mall,0,13:00,McDonald's,60,40,274,16
+Inorbit Mall,0,13:00,Shoppers Stop,10,70,75,34
+Inorbit Mall,1,13:00,Apple Store,10,10,218,24
+Inorbit Mall,1,13:00,H&M,80,60,122,34
+Inorbit Mall,1,13:00,KFC,20,40,171,33
+Inorbit Mall,1,13:00,Titan,30,50,148,22
+Inorbit Mall,1,13:00,Westside,50,20,299,27
+Inorbit Mall,2,13:00,PVR Cinemas,50,10,82,25
+Inorbit Mall,2,13:00,Food Court,30,40,261,25
+Inorbit Mall,2,13:00,Adidas,10,20,262,26
+Inorbit Mall,2,13:00,Bata,90,50,116,20
+Inorbit Mall,2,13:00,Pantaloons,20,30,161,17
+Inorbit Mall,3,13:00,Timezone,70,30,108,30
+Inorbit Mall,3,13:00,Domino's,40,60,126,21
+Inorbit Mall,3,13:00,Van Heusen,10,50,133,33
+Inorbit Mall,3,13:00,Woodland,90,10,152,21
+Inorbit Mall,3,13:00,Croma,80,40,145,20
+Inorbit Mall,0,14:00,Nike,20,20,54,28
+Inorbit Mall,0,14:00,Starbucks,90,30,235,23
+Inorbit Mall,0,14:00,Zara,30,10,299,34
+Inorbit Mall,0,14:00,McDonald's,60,40,274,21
+Inorbit Mall,0,14:00,Shoppers Stop,10,70,75,16
+Inorbit Mall,1,14:00,Apple Store,10,10,218,20
+Inorbit Mall,1,14:00,H&M,80,60,122,24
+Inorbit Mall,1,14:00,KFC,20,40,171,35
+Inorbit Mall,1,14:00,Titan,30,50,148,33
+Inorbit Mall,1,14:00,Westside,50,20,299,27
+Inorbit Mall,2,14:00,PVR Cinemas,50,10,82,35
+Inorbit Mall,2,14:00,Food Court,30,40,261,31
+Inorbit Mall,2,14:00,Adidas,10,20,262,28
+Inorbit Mall,2,14:00,Bata,90,50,116,17
+Inorbit Mall,2,14:00,Pantaloons,20,30,161,19
+Inorbit Mall,3,14:00,Timezone,70,30,108,18
+Inorbit Mall,3,14:00,Domino's,40,60,126,28
+Inorbit Mall,3,14:00,Van Heusen,10,50,133,31
+Inorbit Mall,3,14:00,Woodland,90,10,152,16
+Inorbit Mall,3,14:00,Croma,80,40,145,26
+Inorbit Mall,0,15:00,Nike,20,20,54,23
+Inorbit Mall,0,15:00,Starbucks,90,30,235,33
+Inorbit Mall,0,15:00,Zara,30,10,299,34
+Inorbit Mall,0,15:00,McDonald's,60,40,274,18
+Inorbit Mall,0,15:00,Shoppers Stop,10,70,75,21
+Inorbit Mall,1,15:00,Apple Store,10,10,218,16
+Inorbit Mall,1,15:00,H&M,80,60,122,24
+Inorbit Mall,1,15:00,KFC,20,40,171,32
+Inorbit Mall,1,15:00,Titan,30,50,148,28
+Inorbit Mall,1,15:00,Westside,50,20,299,31
+Inorbit Mall,2,15:00,PVR Cinemas,50,10,82,16
+Inorbit Mall,2,15:00,Food Court,30,40,261,29
+Inorbit Mall,2,15:00,Adidas,10,20,262,29
+Inorbit Mall,2,15:00,Bata,90,50,116,24
+Inorbit Mall,2,15:00,Pantaloons,20,30,161,18
+Inorbit Mall,3,15:00,Timezone,70,30,108,30
+Inorbit Mall,3,15:00,Domino's,40,60,126,20
+Inorbit Mall,3,15:00,Van Heusen,10,50,133,20
+Inorbit Mall,3,15:00,Woodland,90,10,152,18
+Inorbit Mall,3,15:00,Croma,80,40,145,28
+Inorbit Mall,0,16:00,Nike,20,20,54,28
+Inorbit Mall,0,16:00,Starbucks,90,30,235,30
+Inorbit Mall,0,16:00,Zara,30,10,299,26
+Inorbit Mall,0,16:00,McDonald's,60,40,274,21
+Inorbit Mall,0,16:00,Shoppers Stop,10,70,75,22
+Inorbit Mall,1,16:00,Apple Store,10,10,218,31
+Inorbit Mall,1,16:00,H&M,80,60,122,18
+Inorbit Mall,1,16:00,KFC,20,40,171,32
+Inorbit Mall,1,16:00,Titan,30,50,148,16
+Inorbit Mall,1,16:00,Westside,50,20,299,20
+Inorbit Mall,2,16:00,PVR Cinemas,50,10,82,35
+Inorbit Mall,2,16:00,Food Court,30,40,261,35
+Inorbit Mall,2,16:00,Adidas,10,20,262,23
+Inorbit Mall,2,16:00,Bata,90,50,116,27
+Inorbit Mall,2,16:00,Pantaloons,20,30,161,33
+Inorbit Mall,3,16:00,Timezone,70,30,108,21
+Inorbit Mall,3,16:00,Domino's,40,60,126,21
+Inorbit Mall,3,16:00,Van Heusen,10,50,133,25
+Inorbit Mall,3,16:00,Woodland,90,10,152,26
+Inorbit Mall,3,16:00,Croma,80,40,145,23
+Inorbit Mall,0,17:00,Nike,20,20,54,28
+Inorbit Mall,0,17:00,Starbucks,90,30,235,33
+Inorbit Mall,0,17:00,Zara,30,10,299,18
+Inorbit Mall,0,17:00,McDonald's,60,40,274,25
+Inorbit Mall,0,17:00,Shoppers Stop,10,70,75,31
+Inorbit Mall,1,17:00,Apple Store,10,10,218,32
+Inorbit Mall,1,17:00,H&M,80,60,122,28
+Inorbit Mall,1,17:00,KFC,20,40,171,29
+Inorbit Mall,1,17:00,Titan,30,50,148,26
+Inorbit Mall,1,17:00,Westside,50,20,299,27
+Inorbit Mall,2,17:00,PVR Cinemas,50,10,82,24
+Inorbit Mall,2,17:00,Food Court,30,40,261,27
+Inorbit Mall,2,17:00,Adidas,10,20,262,26
+Inorbit Mall,2,17:00,Bata,90,50,116,23
+Inorbit Mall,2,17:00,Pantaloons,20,30,161,32
+Inorbit Mall,3,17:00,Timezone,70,30,108,23
+Inorbit Mall,3,17:00,Domino's,40,60,126,27
+Inorbit Mall,3,17:00,Van Heusen,10,50,133,27
+Inorbit Mall,3,17:00,Woodland,90,10,152,30
+Inorbit Mall,3,17:00,Croma,80,40,145,22
+Inorbit Mall,0,18:00,Nike,20,20,54,27
+Inorbit Mall,0,18:00,Starbucks,90,30,235,32
+Inorbit Mall,0,18:00,Zara,30,10,299,31
+Inorbit Mall,0,18:00,McDonald's,60,40,274,22
+Inorbit Mall,0,18:00,Shoppers Stop,10,70,75,21
+Inorbit Mall,1,18:00,Apple Store,10,10,218,16
+Inorbit Mall,1,18:00,H&M,80,60,122,20
+Inorbit Mall,1,18:00,KFC,20,40,171,32
+Inorbit Mall,1,18:00,Titan,30,50,148,35
+Inorbit Mall,1,18:00,Westside,50,20,299,21
+Inorbit Mall,2,18:00,PVR Cinemas,50,10,82,32
+Inorbit Mall,2,18:00,Food Court,30,40,261,29
+Inorbit Mall,2,18:00,Adidas,10,20,262,28
+Inorbit Mall,2,18:00,Bata,90,50,116,22
+Inorbit Mall,2,18:00,Pantaloons,20,30,161,16
+Inorbit Mall,3,18:00,Timezone,70,30,108,31
+Inorbit Mall,3,18:00,Domino's,40,60,126,19
+Inorbit Mall,3,18:00,Van Heusen,10,50,133,28
+Inorbit Mall,3,18:00,Woodland,90,10,152,22
+Inorbit Mall,3,18:00,Croma,80,40,145,27
+Inorbit Mall,0,19:00,Nike,20,20,54,35
+Inorbit Mall,0,19:00,Starbucks,90,30,235,23
+Inorbit Mall,0,19:00,Zara,30,10,299,23
+Inorbit Mall,0,19:00,McDonald's,60,40,274,31
+Inorbit Mall,0,19:00,Shoppers Stop,10,70,75,26
+Inorbit Mall,1,19:00,Apple Store,10,10,218,19
+Inorbit Mall,1,19:00,H&M,80,60,122,28
+Inorbit Mall,1,19:00,KFC,20,40,171,23
+Inorbit Mall,1,19:00,Titan,30,50,148,30
+Inorbit Mall,1,19:00,Westside,50,20,299,26
+Inorbit Mall,2,19:00,PVR Cinemas,50,10,82,21
+Inorbit Mall,2,19:00,Food Court,30,40,261,23
+Inorbit Mall,2,19:00,Adidas,10,20,262,34
+Inorbit Mall,2,19:00,Bata,90,50,116,28
+Inorbit Mall,2,19:00,Pantaloons,20,30,161,27
+Inorbit Mall,3,19:00,Timezone,70,30,108,20
+Inorbit Mall,3,19:00,Domino's,40,60,126,23
+Inorbit Mall,3,19:00,Van Heusen,10,50,133,33
+Inorbit Mall,3,19:00,Woodland,90,10,152,30
+Inorbit Mall,3,19:00,Croma,80,40,145,31
+Inorbit Mall,0,20:00,Nike,20,20,54,29
+Inorbit Mall,0,20:00,Starbucks,90,30,235,17
+Inorbit Mall,0,20:00,Zara,30,10,299,28
+Inorbit Mall,0,20:00,McDonald's,60,40,274,34
+Inorbit Mall,0,20:00,Shoppers Stop,10,70,75,21
+Inorbit Mall,1,20:00,Apple Store,10,10,218,33
+Inorbit Mall,1,20:00,H&M,80,60,122,29
+Inorbit Mall,1,20:00,KFC,20,40,171,27
+Inorbit Mall,1,20:00,Titan,30,50,148,35
+Inorbit Mall,1,20:00,Westside,50,20,299,33
+Inorbit Mall,2,20:00,PVR Cinemas,50,10,82,26
+Inorbit Mall,2,20:00,Food Court,30,40,261,16
+Inorbit Mall,2,20:00,Adidas,10,20,262,20
+Inorbit Mall,2,20:00,Bata,90,50,116,29
+Inorbit Mall,2,20:00,Pantaloons,20,30,161,25
+Inorbit Mall,3,20:00,Timezone,70,30,108,30
+Inorbit Mall,3,20:00,Domino's,40,60,126,23
+Inorbit Mall,3,20:00,Van Heusen,10,50,133,25
+Inorbit Mall,3,20:00,Woodland,90,10,152,33
+Inorbit Mall,3,20:00,Croma,80,40,145,35
+Inorbit Mall,0,21:00,Nike,20,20,54,27
+Inorbit Mall,0,21:00,Starbucks,90,30,235,28
+Inorbit Mall,0,21:00,Zara,30,10,299,34
+Inorbit Mall,0,21:00,McDonald's,60,40,274,23
+Inorbit Mall,0,21:00,Shoppers Stop,10,70,75,30
+Inorbit Mall,1,21:00,Apple Store,10,10,218,30
+Inorbit Mall,1,21:00,H&M,80,60,122,34
+Inorbit Mall,1,21:00,KFC,20,40,171,30
+Inorbit Mall,1,21:00,Titan,30,50,148,19
+Inorbit Mall,1,21:00,Westside,50,20,299,23
+Inorbit Mall,2,21:00,PVR Cinemas,50,10,82,29
+Inorbit Mall,2,21:00,Food Court,30,40,261,16
+Inorbit Mall,2,21:00,Adidas,10,20,262,35
+Inorbit Mall,2,21:00,Bata,90,50,116,17
+Inorbit Mall,2,21:00,Pantaloons,20,30,161,28
+Inorbit Mall,3,21:00,Timezone,70,30,108,16
+Inorbit Mall,3,21:00,Domino's,40,60,126,31
+Inorbit Mall,3,21:00,Van Heusen,10,50,133,23
+Inorbit Mall,3,21:00,Woodland,90,10,152,17
+Inorbit Mall,3,21:00,Croma,80,40,145,34
+Phoenix Palladium,0,10:00,Louis Vuitton,50,30,76,4
+Phoenix Palladium,0,10:00,Gucci,40,20,122,1
+Phoenix Palladium,0,10:00,Starbucks,70,70,62,3
+Phoenix Palladium,0,10:00,Zara,90,60,122,3
+Phoenix Palladium,0,10:00,Sephora,20,40,98,1
+Phoenix Palladium,1,10:00,Apple Store,80,20,157,5
+Phoenix Palladium,1,10:00,Nike,50,50,120,2
+Phoenix Palladium,1,10:00,H&M,90,60,75,1
+Phoenix Palladium,1,10:00,Burger King,30,70,252,2
+Phoenix Palladium,1,10:00,Marks & Spencer,40,30,256,3
+Phoenix Palladium,2,10:00,PVR Gold,20,10,119,5
+Phoenix Palladium,2,10:00,Farzi Cafe,30,40,110,3
+Phoenix Palladium,2,10:00,Emporio Armani,90,70,83,2
+Phoenix Palladium,2,10:00,Tumi,60,60,206,1
+Phoenix Palladium,2,10:00,Vero Moda,10,20,250,3
+Phoenix Palladium,3,10:00,Food Court,30,50,290,1
+Phoenix Palladium,3,10:00,Only,10,20,141,3
+Phoenix Palladium,3,10:00,Forever 21,80,60,166,1
+Phoenix Palladium,3,10:00,Lacoste,40,30,121,5
+Phoenix Palladium,3,10:00,Hamleys,60,40,292,3
+Phoenix Palladium,0,11:00,Louis Vuitton,50,30,76,1
+Phoenix Palladium,0,11:00,Gucci,40,20,122,5
+Phoenix Palladium,0,11:00,Starbucks,70,70,62,1
+Phoenix Palladium,0,11:00,Zara,90,60,122,2
+Phoenix Palladium,0,11:00,Sephora,20,40,98,5
+Phoenix Palladium,1,11:00,Apple Store,80,20,157,3
+Phoenix Palladium,1,11:00,Nike,50,50,120,5
+Phoenix Palladium,1,11:00,H&M,90,60,75,2
+Phoenix Palladium,1,11:00,Burger King,30,70,252,2
+Phoenix Palladium,1,11:00,Marks & Spencer,40,30,256,4
+Phoenix Palladium,2,11:00,PVR Gold,20,10,119,2
+Phoenix Palladium,2,11:00,Farzi Cafe,30,40,110,4
+Phoenix Palladium,2,11:00,Emporio Armani,90,70,83,3
+Phoenix Palladium,2,11:00,Tumi,60,60,206,4
+Phoenix Palladium,2,11:00,Vero Moda,10,20,250,1
+Phoenix Palladium,3,11:00,Food Court,30,50,290,5
+Phoenix Palladium,3,11:00,Only,10,20,141,1
+Phoenix Palladium,3,11:00,Forever 21,80,60,166,3
+Phoenix Palladium,3,11:00,Lacoste,40,30,121,3
+Phoenix Palladium,3,11:00,Hamleys,60,40,292,4
+Phoenix Palladium,0,12:00,Louis Vuitton,50,30,76,5
+Phoenix Palladium,0,12:00,Gucci,40,20,122,3
+Phoenix Palladium,0,12:00,Starbucks,70,70,62,5
+Phoenix Palladium,0,12:00,Zara,90,60,122,5
+Phoenix Palladium,0,12:00,Sephora,20,40,98,1
+Phoenix Palladium,1,12:00,Apple Store,80,20,157,2
+Phoenix Palladium,1,12:00,Nike,50,50,120,1
+Phoenix Palladium,1,12:00,H&M,90,60,75,2
+Phoenix Palladium,1,12:00,Burger King,30,70,252,5
+Phoenix Palladium,1,12:00,Marks & Spencer,40,30,256,3
+Phoenix Palladium,2,12:00,PVR Gold,20,10,119,5
+Phoenix Palladium,2,12:00,Farzi Cafe,30,40,110,3
+Phoenix Palladium,2,12:00,Emporio Armani,90,70,83,3
+Phoenix Palladium,2,12:00,Tumi,60,60,206,5
+Phoenix Palladium,2,12:00,Vero Moda,10,20,250,5
+Phoenix Palladium,3,12:00,Food Court,30,50,290,1
+Phoenix Palladium,3,12:00,Only,10,20,141,2
+Phoenix Palladium,3,12:00,Forever 21,80,60,166,1
+Phoenix Palladium,3,12:00,Lacoste,40,30,121,3
+Phoenix Palladium,3,12:00,Hamleys,60,40,292,3
+Phoenix Palladium,0,13:00,Louis Vuitton,50,30,76,4
+Phoenix Palladium,0,13:00,Gucci,40,20,122,3
+Phoenix Palladium,0,13:00,Starbucks,70,70,62,4
+Phoenix Palladium,0,13:00,Zara,90,60,122,1
+Phoenix Palladium,0,13:00,Sephora,20,40,98,1
+Phoenix Palladium,1,13:00,Apple Store,80,20,157,1
+Phoenix Palladium,1,13:00,Nike,50,50,120,3
+Phoenix Palladium,1,13:00,H&M,90,60,75,2
+Phoenix Palladium,1,13:00,Burger King,30,70,252,4
+Phoenix Palladium,1,13:00,Marks & Spencer,40,30,256,5
+Phoenix Palladium,2,13:00,PVR Gold,20,10,119,4
+Phoenix Palladium,2,13:00,Farzi Cafe,30,40,110,5
+Phoenix Palladium,2,13:00,Emporio Armani,90,70,83,4
+Phoenix Palladium,2,13:00,Tumi,60,60,206,3
+Phoenix Palladium,2,13:00,Vero Moda,10,20,250,1
+Phoenix Palladium,3,13:00,Food Court,30,50,290,1
+Phoenix Palladium,3,13:00,Only,10,20,141,1
+Phoenix Palladium,3,13:00,Forever 21,80,60,166,1
+Phoenix Palladium,3,13:00,Lacoste,40,30,121,5
+Phoenix Palladium,3,13:00,Hamleys,60,40,292,1
+Phoenix Palladium,0,14:00,Louis Vuitton,50,30,76,1
+Phoenix Palladium,0,14:00,Gucci,40,20,122,4
+Phoenix Palladium,0,14:00,Starbucks,70,70,62,3
+Phoenix Palladium,0,14:00,Zara,90,60,122,3
+Phoenix Palladium,0,14:00,Sephora,20,40,98,5
+Phoenix Palladium,1,14:00,Apple Store,80,20,157,4
+Phoenix Palladium,1,14:00,Nike,50,50,120,3
+Phoenix Palladium,1,14:00,H&M,90,60,75,2
+Phoenix Palladium,1,14:00,Burger King,30,70,252,4
+Phoenix Palladium,1,14:00,Marks & Spencer,40,30,256,2
+Phoenix Palladium,2,14:00,PVR Gold,20,10,119,4
+Phoenix Palladium,2,14:00,Farzi Cafe,30,40,110,2
+Phoenix Palladium,2,14:00,Emporio Armani,90,70,83,2
+Phoenix Palladium,2,14:00,Tumi,60,60,206,5
+Phoenix Palladium,2,14:00,Vero Moda,10,20,250,2
+Phoenix Palladium,3,14:00,Food Court,30,50,290,3
+Phoenix Palladium,3,14:00,Only,10,20,141,5
+Phoenix Palladium,3,14:00,Forever 21,80,60,166,5
+Phoenix Palladium,3,14:00,Lacoste,40,30,121,1
+Phoenix Palladium,3,14:00,Hamleys,60,40,292,3
+Phoenix Palladium,0,15:00,Louis Vuitton,50,30,76,5
+Phoenix Palladium,0,15:00,Gucci,40,20,122,3
+Phoenix Palladium,0,15:00,Starbucks,70,70,62,5
+Phoenix Palladium,0,15:00,Zara,90,60,122,4
+Phoenix Palladium,0,15:00,Sephora,20,40,98,3
+Phoenix Palladium,1,15:00,Apple Store,80,20,157,1
+Phoenix Palladium,1,15:00,Nike,50,50,120,4
+Phoenix Palladium,1,15:00,H&M,90,60,75,2
+Phoenix Palladium,1,15:00,Burger King,30,70,252,1
+Phoenix Palladium,1,15:00,Marks & Spencer,40,30,256,1
+Phoenix Palladium,2,15:00,PVR Gold,20,10,119,5
+Phoenix Palladium,2,15:00,Farzi Cafe,30,40,110,3
+Phoenix Palladium,2,15:00,Emporio Armani,90,70,83,3
+Phoenix Palladium,2,15:00,Tumi,60,60,206,5
+Phoenix Palladium,2,15:00,Vero Moda,10,20,250,4
+Phoenix Palladium,3,15:00,Food Court,30,50,290,4
+Phoenix Palladium,3,15:00,Only,10,20,141,5
+Phoenix Palladium,3,15:00,Forever 21,80,60,166,2
+Phoenix Palladium,3,15:00,Lacoste,40,30,121,4
+Phoenix Palladium,3,15:00,Hamleys,60,40,292,4
+Phoenix Palladium,0,16:00,Louis Vuitton,50,30,76,4
+Phoenix Palladium,0,16:00,Gucci,40,20,122,5
+Phoenix Palladium,0,16:00,Starbucks,70,70,62,2
+Phoenix Palladium,0,16:00,Zara,90,60,122,5
+Phoenix Palladium,0,16:00,Sephora,20,40,98,2
+Phoenix Palladium,1,16:00,Apple Store,80,20,157,4
+Phoenix Palladium,1,16:00,Nike,50,50,120,1
+Phoenix Palladium,1,16:00,H&M,90,60,75,2
+Phoenix Palladium,1,16:00,Burger King,30,70,252,2
+Phoenix Palladium,1,16:00,Marks & Spencer,40,30,256,2
+Phoenix Palladium,2,16:00,PVR Gold,20,10,119,2
+Phoenix Palladium,2,16:00,Farzi Cafe,30,40,110,5
+Phoenix Palladium,2,16:00,Emporio Armani,90,70,83,1
+Phoenix Palladium,2,16:00,Tumi,60,60,206,1
+Phoenix Palladium,2,16:00,Vero Moda,10,20,250,3
+Phoenix Palladium,3,16:00,Food Court,30,50,290,1
+Phoenix Palladium,3,16:00,Only,10,20,141,2
+Phoenix Palladium,3,16:00,Forever 21,80,60,166,4
+Phoenix Palladium,3,16:00,Lacoste,40,30,121,5
+Phoenix Palladium,3,16:00,Hamleys,60,40,292,1
+Phoenix Palladium,0,17:00,Louis Vuitton,50,30,76,1
+Phoenix Palladium,0,17:00,Gucci,40,20,122,5
+Phoenix Palladium,0,17:00,Starbucks,70,70,62,4
+Phoenix Palladium,0,17:00,Zara,90,60,122,4
+Phoenix Palladium,0,17:00,Sephora,20,40,98,5
+Phoenix Palladium,1,17:00,Apple Store,80,20,157,4
+Phoenix Palladium,1,17:00,Nike,50,50,120,5
+Phoenix Palladium,1,17:00,H&M,90,60,75,2
+Phoenix Palladium,1,17:00,Burger King,30,70,252,5
+Phoenix Palladium,1,17:00,Marks & Spencer,40,30,256,4
+Phoenix Palladium,2,17:00,PVR Gold,20,10,119,5
+Phoenix Palladium,2,17:00,Farzi Cafe,30,40,110,5
+Phoenix Palladium,2,17:00,Emporio Armani,90,70,83,3
+Phoenix Palladium,2,17:00,Tumi,60,60,206,5
+Phoenix Palladium,2,17:00,Vero Moda,10,20,250,1
+Phoenix Palladium,3,17:00,Food Court,30,50,290,2
+Phoenix Palladium,3,17:00,Only,10,20,141,4
+Phoenix Palladium,3,17:00,Forever 21,80,60,166,5
+Phoenix Palladium,3,17:00,Lacoste,40,30,121,4
+Phoenix Palladium,3,17:00,Hamleys,60,40,292,3
+Phoenix Palladium,0,18:00,Louis Vuitton,50,30,76,3
+Phoenix Palladium,0,18:00,Gucci,40,20,122,4
+Phoenix Palladium,0,18:00,Starbucks,70,70,62,4
+Phoenix Palladium,0,18:00,Zara,90,60,122,4
+Phoenix Palladium,0,18:00,Sephora,20,40,98,5
+Phoenix Palladium,1,18:00,Apple Store,80,20,157,2
+Phoenix Palladium,1,18:00,Nike,50,50,120,3
+Phoenix Palladium,1,18:00,H&M,90,60,75,5
+Phoenix Palladium,1,18:00,Burger King,30,70,252,3
+Phoenix Palladium,1,18:00,Marks & Spencer,40,30,256,1
+Phoenix Palladium,2,18:00,PVR Gold,20,10,119,5
+Phoenix Palladium,2,18:00,Farzi Cafe,30,40,110,1
+Phoenix Palladium,2,18:00,Emporio Armani,90,70,83,4
+Phoenix Palladium,2,18:00,Tumi,60,60,206,5
+Phoenix Palladium,2,18:00,Vero Moda,10,20,250,4
+Phoenix Palladium,3,18:00,Food Court,30,50,290,1
+Phoenix Palladium,3,18:00,Only,10,20,141,1
+Phoenix Palladium,3,18:00,Forever 21,80,60,166,4
+Phoenix Palladium,3,18:00,Lacoste,40,30,121,3
+Phoenix Palladium,3,18:00,Hamleys,60,40,292,4
+Phoenix Palladium,0,19:00,Louis Vuitton,50,30,76,3
+Phoenix Palladium,0,19:00,Gucci,40,20,122,4
+Phoenix Palladium,0,19:00,Starbucks,70,70,62,2
+Phoenix Palladium,0,19:00,Zara,90,60,122,2
+Phoenix Palladium,0,19:00,Sephora,20,40,98,1
+Phoenix Palladium,1,19:00,Apple Store,80,20,157,2
+Phoenix Palladium,1,19:00,Nike,50,50,120,2
+Phoenix Palladium,1,19:00,H&M,90,60,75,1
+Phoenix Palladium,1,19:00,Burger King,30,70,252,1
+Phoenix Palladium,1,19:00,Marks & Spencer,40,30,256,5
+Phoenix Palladium,2,19:00,PVR Gold,20,10,119,2
+Phoenix Palladium,2,19:00,Farzi Cafe,30,40,110,5
+Phoenix Palladium,2,19:00,Emporio Armani,90,70,83,4
+Phoenix Palladium,2,19:00,Tumi,60,60,206,3
+Phoenix Palladium,2,19:00,Vero Moda,10,20,250,5
+Phoenix Palladium,3,19:00,Food Court,30,50,290,1
+Phoenix Palladium,3,19:00,Only,10,20,141,4
+Phoenix Palladium,3,19:00,Forever 21,80,60,166,1
+Phoenix Palladium,3,19:00,Lacoste,40,30,121,4
+Phoenix Palladium,3,19:00,Hamleys,60,40,292,5
+Phoenix Palladium,0,20:00,Louis Vuitton,50,30,76,2
+Phoenix Palladium,0,20:00,Gucci,40,20,122,4
+Phoenix Palladium,0,20:00,Starbucks,70,70,62,4
+Phoenix Palladium,0,20:00,Zara,90,60,122,2
+Phoenix Palladium,0,20:00,Sephora,20,40,98,1
+Phoenix Palladium,1,20:00,Apple Store,80,20,157,4
+Phoenix Palladium,1,20:00,Nike,50,50,120,1
+Phoenix Palladium,1,20:00,H&M,90,60,75,2
+Phoenix Palladium,1,20:00,Burger King,30,70,252,4
+Phoenix Palladium,1,20:00,Marks & Spencer,40,30,256,3
+Phoenix Palladium,2,20:00,PVR Gold,20,10,119,2
+Phoenix Palladium,2,20:00,Farzi Cafe,30,40,110,5
+Phoenix Palladium,2,20:00,Emporio Armani,90,70,83,4
+Phoenix Palladium,2,20:00,Tumi,60,60,206,5
+Phoenix Palladium,2,20:00,Vero Moda,10,20,250,5
+Phoenix Palladium,3,20:00,Food Court,30,50,290,3
+Phoenix Palladium,3,20:00,Only,10,20,141,4
+Phoenix Palladium,3,20:00,Forever 21,80,60,166,5
+Phoenix Palladium,3,20:00,Lacoste,40,30,121,5
+Phoenix Palladium,3,20:00,Hamleys,60,40,292,1
+Phoenix Palladium,0,21:00,Louis Vuitton,50,30,76,5
+Phoenix Palladium,0,21:00,Gucci,40,20,122,3
+Phoenix Palladium,0,21:00,Starbucks,70,70,62,3
+Phoenix Palladium,0,21:00,Zara,90,60,122,5
+Phoenix Palladium,0,21:00,Sephora,20,40,98,1
+Phoenix Palladium,1,21:00,Apple Store,80,20,157,5
+Phoenix Palladium,1,21:00,Nike,50,50,120,3
+Phoenix Palladium,1,21:00,H&M,90,60,75,3
+Phoenix Palladium,1,21:00,Burger King,30,70,252,2
+Phoenix Palladium,1,21:00,Marks & Spencer,40,30,256,3
+Phoenix Palladium,2,21:00,PVR Gold,20,10,119,4
+Phoenix Palladium,2,21:00,Farzi Cafe,30,40,110,5
+Phoenix Palladium,2,21:00,Emporio Armani,90,70,83,3
+Phoenix Palladium,2,21:00,Tumi,60,60,206,2
+Phoenix Palladium,2,21:00,Vero Moda,10,20,250,1
+Phoenix Palladium,3,21:00,Food Court,30,50,290,4
+Phoenix Palladium,3,21:00,Only,10,20,141,5
+Phoenix Palladium,3,21:00,Forever 21,80,60,166,2
+Phoenix Palladium,3,21:00,Lacoste,40,30,121,3
+Phoenix Palladium,3,21:00,Hamleys,60,40,292,2
+Express Avenue,0,10:00,Lifestyle,50,40,250,13
+Express Avenue,0,10:00,McDonald's,80,30,138,10
+Express Avenue,0,10:00,Mango,30,20,172,7
+Express Avenue,0,10:00,Levi's,70,60,207,13
+Express Avenue,0,10:00,Bata,60,70,259,12
+Express Avenue,1,10:00,Croma,40,40,167,14
+Express Avenue,1,10:00,Domino's,20,30,154,13
+Express Avenue,1,10:00,United Colors of Benetton,10,10,145,15
+Express Avenue,1,10:00,Titan,60,60,63,8
+Express Avenue,1,10:00,Wills Lifestyle,80,50,231,10
+Express Avenue,2,10:00,Inox Cinema,30,60,197,9
+Express Avenue,2,10:00,Food Court,60,30,199,11
+Express Avenue,2,10:00,Adidas,20,40,57,13
+Express Avenue,2,10:00,Pantaloons,80,50,151,14
+Express Avenue,2,10:00,Van Heusen,90,20,153,8
+Express Avenue,3,10:00,Timezone,50,50,236,10
+Express Avenue,3,10:00,KFC,80,60,259,7
+Express Avenue,3,10:00,Raymond,60,70,52,15
+Express Avenue,3,10:00,Woodland,90,10,220,15
+Express Avenue,3,10:00,Fabindia,30,20,221,8
+Express Avenue,0,11:00,Lifestyle,50,40,250,15
+Express Avenue,0,11:00,McDonald's,80,30,138,7
+Express Avenue,0,11:00,Mango,30,20,172,13
+Express Avenue,0,11:00,Levi's,70,60,207,6
+Express Avenue,0,11:00,Bata,60,70,259,13
+Express Avenue,1,11:00,Croma,40,40,167,10
+Express Avenue,1,11:00,Domino's,20,30,154,7
+Express Avenue,1,11:00,United Colors of Benetton,10,10,145,9
+Express Avenue,1,11:00,Titan,60,60,63,7
+Express Avenue,1,11:00,Wills Lifestyle,80,50,231,15
+Express Avenue,2,11:00,Inox Cinema,30,60,197,13
+Express Avenue,2,11:00,Food Court,60,30,199,15
+Express Avenue,2,11:00,Adidas,20,40,57,12
+Express Avenue,2,11:00,Pantaloons,80,50,151,9
+Express Avenue,2,11:00,Van Heusen,90,20,153,15
+Express Avenue,3,11:00,Timezone,50,50,236,11
+Express Avenue,3,11:00,KFC,80,60,259,7
+Express Avenue,3,11:00,Raymond,60,70,52,12
+Express Avenue,3,11:00,Woodland,90,10,220,7
+Express Avenue,3,11:00,Fabindia,30,20,221,14
+Express Avenue,0,12:00,Lifestyle,50,40,250,12
+Express Avenue,0,12:00,McDonald's,80,30,138,14
+Express Avenue,0,12:00,Mango,30,20,172,12
+Express Avenue,0,12:00,Levi's,70,60,207,7
+Express Avenue,0,12:00,Bata,60,70,259,15
+Express Avenue,1,12:00,Croma,40,40,167,6
+Express Avenue,1,12:00,Domino's,20,30,154,9
+Express Avenue,1,12:00,United Colors of Benetton,10,10,145,15
+Express Avenue,1,12:00,Titan,60,60,63,13
+Express Avenue,1,12:00,Wills Lifestyle,80,50,231,11
+Express Avenue,2,12:00,Inox Cinema,30,60,197,7
+Express Avenue,2,12:00,Food Court,60,30,199,14
+Express Avenue,2,12:00,Adidas,20,40,57,8
+Express Avenue,2,12:00,Pantaloons,80,50,151,14
+Express Avenue,2,12:00,Van Heusen,90,20,153,15
+Express Avenue,3,12:00,Timezone,50,50,236,8
+Express Avenue,3,12:00,KFC,80,60,259,6
+Express Avenue,3,12:00,Raymond,60,70,52,10
+Express Avenue,3,12:00,Woodland,90,10,220,15
+Express Avenue,3,12:00,Fabindia,30,20,221,13
+Express Avenue,0,13:00,Lifestyle,50,40,250,10
+Express Avenue,0,13:00,McDonald's,80,30,138,14
+Express Avenue,0,13:00,Mango,30,20,172,8
+Express Avenue,0,13:00,Levi's,70,60,207,11
+Express Avenue,0,13:00,Bata,60,70,259,10
+Express Avenue,1,13:00,Croma,40,40,167,8
+Express Avenue,1,13:00,Domino's,20,30,154,8
+Express Avenue,1,13:00,United Colors of Benetton,10,10,145,6
+Express Avenue,1,13:00,Titan,60,60,63,7
+Express Avenue,1,13:00,Wills Lifestyle,80,50,231,10
+Express Avenue,2,13:00,Inox Cinema,30,60,197,7
+Express Avenue,2,13:00,Food Court,60,30,199,9
+Express Avenue,2,13:00,Adidas,20,40,57,15
+Express Avenue,2,13:00,Pantaloons,80,50,151,7
+Express Avenue,2,13:00,Van Heusen,90,20,153,11
+Express Avenue,3,13:00,Timezone,50,50,236,11
+Express Avenue,3,13:00,KFC,80,60,259,6
+Express Avenue,3,13:00,Raymond,60,70,52,6
+Express Avenue,3,13:00,Woodland,90,10,220,9
+Express Avenue,3,13:00,Fabindia,30,20,221,6
+Express Avenue,0,14:00,Lifestyle,50,40,250,13
+Express Avenue,0,14:00,McDonald's,80,30,138,8
+Express Avenue,0,14:00,Mango,30,20,172,11
+Express Avenue,0,14:00,Levi's,70,60,207,8
+Express Avenue,0,14:00,Bata,60,70,259,15
+Express Avenue,1,14:00,Croma,40,40,167,12
+Express Avenue,1,14:00,Domino's,20,30,154,8
+Express Avenue,1,14:00,United Colors of Benetton,10,10,145,7
+Express Avenue,1,14:00,Titan,60,60,63,7
+Express Avenue,1,14:00,Wills Lifestyle,80,50,231,14
+Express Avenue,2,14:00,Inox Cinema,30,60,197,9
+Express Avenue,2,14:00,Food Court,60,30,199,14
+Express Avenue,2,14:00,Adidas,20,40,57,12
+Express Avenue,2,14:00,Pantaloons,80,50,151,11
+Express Avenue,2,14:00,Van Heusen,90,20,153,10
+Express Avenue,3,14:00,Timezone,50,50,236,6
+Express Avenue,3,14:00,KFC,80,60,259,6
+Express Avenue,3,14:00,Raymond,60,70,52,7
+Express Avenue,3,14:00,Woodland,90,10,220,6
+Express Avenue,3,14:00,Fabindia,30,20,221,11
+Express Avenue,0,15:00,Lifestyle,50,40,250,10
+Express Avenue,0,15:00,McDonald's,80,30,138,10
+Express Avenue,0,15:00,Mango,30,20,172,11
+Express Avenue,0,15:00,Levi's,70,60,207,14
+Express Avenue,0,15:00,Bata,60,70,259,14
+Express Avenue,1,15:00,Croma,40,40,167,11
+Express Avenue,1,15:00,Domino's,20,30,154,12
+Express Avenue,1,15:00,United Colors of Benetton,10,10,145,13
+Express Avenue,1,15:00,Titan,60,60,63,12
+Express Avenue,1,15:00,Wills Lifestyle,80,50,231,8
+Express Avenue,2,15:00,Inox Cinema,30,60,197,14
+Express Avenue,2,15:00,Food Court,60,30,199,12
+Express Avenue,2,15:00,Adidas,20,40,57,13
+Express Avenue,2,15:00,Pantaloons,80,50,151,15
+Express Avenue,2,15:00,Van Heusen,90,20,153,13
+Express Avenue,3,15:00,Timezone,50,50,236,7
+Express Avenue,3,15:00,KFC,80,60,259,14
+Express Avenue,3,15:00,Raymond,60,70,52,10
+Express Avenue,3,15:00,Woodland,90,10,220,7
+Express Avenue,3,15:00,Fabindia,30,20,221,6
+Express Avenue,0,16:00,Lifestyle,50,40,250,9
+Express Avenue,0,16:00,McDonald's,80,30,138,12
+Express Avenue,0,16:00,Mango,30,20,172,10
+Express Avenue,0,16:00,Levi's,70,60,207,12
+Express Avenue,0,16:00,Bata,60,70,259,14
+Express Avenue,1,16:00,Croma,40,40,167,10
+Express Avenue,1,16:00,Domino's,20,30,154,11
+Express Avenue,1,16:00,United Colors of Benetton,10,10,145,10
+Express Avenue,1,16:00,Titan,60,60,63,7
+Express Avenue,1,16:00,Wills Lifestyle,80,50,231,9
+Express Avenue,2,16:00,Inox Cinema,30,60,197,11
+Express Avenue,2,16:00,Food Court,60,30,199,14
+Express Avenue,2,16:00,Adidas,20,40,57,6
+Express Avenue,2,16:00,Pantaloons,80,50,151,12
+Express Avenue,2,16:00,Van Heusen,90,20,153,8
+Express Avenue,3,16:00,Timezone,50,50,236,7
+Express Avenue,3,16:00,KFC,80,60,259,10
+Express Avenue,3,16:00,Raymond,60,70,52,9
+Express Avenue,3,16:00,Woodland,90,10,220,10
+Express Avenue,3,16:00,Fabindia,30,20,221,13
+Express Avenue,0,17:00,Lifestyle,50,40,250,13
+Express Avenue,0,17:00,McDonald's,80,30,138,7
+Express Avenue,0,17:00,Mango,30,20,172,15
+Express Avenue,0,17:00,Levi's,70,60,207,6
+Express Avenue,0,17:00,Bata,60,70,259,12
+Express Avenue,1,17:00,Croma,40,40,167,7
+Express Avenue,1,17:00,Domino's,20,30,154,13
+Express Avenue,1,17:00,United Colors of Benetton,10,10,145,8
+Express Avenue,1,17:00,Titan,60,60,63,8
+Express Avenue,1,17:00,Wills Lifestyle,80,50,231,8
+Express Avenue,2,17:00,Inox Cinema,30,60,197,15
+Express Avenue,2,17:00,Food Court,60,30,199,11
+Express Avenue,2,17:00,Adidas,20,40,57,7
+Express Avenue,2,17:00,Pantaloons,80,50,151,6
+Express Avenue,2,17:00,Van Heusen,90,20,153,12
+Express Avenue,3,17:00,Timezone,50,50,236,6
+Express Avenue,3,17:00,KFC,80,60,259,10
+Express Avenue,3,17:00,Raymond,60,70,52,12
+Express Avenue,3,17:00,Woodland,90,10,220,11
+Express Avenue,3,17:00,Fabindia,30,20,221,9
+Express Avenue,0,18:00,Lifestyle,50,40,250,14
+Express Avenue,0,18:00,McDonald's,80,30,138,10
+Express Avenue,0,18:00,Mango,30,20,172,11
+Express Avenue,0,18:00,Levi's,70,60,207,15
+Express Avenue,0,18:00,Bata,60,70,259,13
+Express Avenue,1,18:00,Croma,40,40,167,7
+Express Avenue,1,18:00,Domino's,20,30,154,12
+Express Avenue,1,18:00,United Colors of Benetton,10,10,145,14
+Express Avenue,1,18:00,Titan,60,60,63,15
+Express Avenue,1,18:00,Wills Lifestyle,80,50,231,7
+Express Avenue,2,18:00,Inox Cinema,30,60,197,15
+Express Avenue,2,18:00,Food Court,60,30,199,13
+Express Avenue,2,18:00,Adidas,20,40,57,15
+Express Avenue,2,18:00,Pantaloons,80,50,151,9
+Express Avenue,2,18:00,Van Heusen,90,20,153,12
+Express Avenue,3,18:00,Timezone,50,50,236,9
+Express Avenue,3,18:00,KFC,80,60,259,7
+Express Avenue,3,18:00,Raymond,60,70,52,9
+Express Avenue,3,18:00,Woodland,90,10,220,12
+Express Avenue,3,18:00,Fabindia,30,20,221,11
+Express Avenue,0,19:00,Lifestyle,50,40,250,12
+Express Avenue,0,19:00,McDonald's,80,30,138,8
+Express Avenue,0,19:00,Mango,30,20,172,9
+Express Avenue,0,19:00,Levi's,70,60,207,14
+Express Avenue,0,19:00,Bata,60,70,259,13
+Express Avenue,1,19:00,Croma,40,40,167,6
+Express Avenue,1,19:00,Domino's,20,30,154,10
+Express Avenue,1,19:00,United Colors of Benetton,10,10,145,8
+Express Avenue,1,19:00,Titan,60,60,63,13
+Express Avenue,1,19:00,Wills Lifestyle,80,50,231,10
+Express Avenue,2,19:00,Inox Cinema,30,60,197,9
+Express Avenue,2,19:00,Food Court,60,30,199,12
+Express Avenue,2,19:00,Adidas,20,40,57,11
+Express Avenue,2,19:00,Pantaloons,80,50,151,8
+Express Avenue,2,19:00,Van Heusen,90,20,153,12
+Express Avenue,3,19:00,Timezone,50,50,236,15
+Express Avenue,3,19:00,KFC,80,60,259,13
+Express Avenue,3,19:00,Raymond,60,70,52,9
+Express Avenue,3,19:00,Woodland,90,10,220,11
+Express Avenue,3,19:00,Fabindia,30,20,221,11
+Express Avenue,0,20:00,Lifestyle,50,40,250,10
+Express Avenue,0,20:00,McDonald's,80,30,138,9
+Express Avenue,0,20:00,Mango,30,20,172,13
+Express Avenue,0,20:00,Levi's,70,60,207,13
+Express Avenue,0,20:00,Bata,60,70,259,10
+Express Avenue,1,20:00,Croma,40,40,167,13
+Express Avenue,1,20:00,Domino's,20,30,154,9
+Express Avenue,1,20:00,United Colors of Benetton,10,10,145,13
+Express Avenue,1,20:00,Titan,60,60,63,13
+Express Avenue,1,20:00,Wills Lifestyle,80,50,231,12
+Express Avenue,2,20:00,Inox Cinema,30,60,197,9
+Express Avenue,2,20:00,Food Court,60,30,199,8
+Express Avenue,2,20:00,Adidas,20,40,57,6
+Express Avenue,2,20:00,Pantaloons,80,50,151,6
+Express Avenue,2,20:00,Van Heusen,90,20,153,11
+Express Avenue,3,20:00,Timezone,50,50,236,8
+Express Avenue,3,20:00,KFC,80,60,259,6
+Express Avenue,3,20:00,Raymond,60,70,52,12
+Express Avenue,3,20:00,Woodland,90,10,220,7
+Express Avenue,3,20:00,Fabindia,30,20,221,9
+Express Avenue,0,21:00,Lifestyle,50,40,250,13
+Express Avenue,0,21:00,McDonald's,80,30,138,8
+Express Avenue,0,21:00,Mango,30,20,172,8
+Express Avenue,0,21:00,Levi's,70,60,207,7
+Express Avenue,0,21:00,Bata,60,70,259,8
+Express Avenue,1,21:00,Croma,40,40,167,12
+Express Avenue,1,21:00,Domino's,20,30,154,7
+Express Avenue,1,21:00,United Colors of Benetton,10,10,145,11
+Express Avenue,1,21:00,Titan,60,60,63,12
+Express Avenue,1,21:00,Wills Lifestyle,80,50,231,10
+Express Avenue,2,21:00,Inox Cinema,30,60,197,9
+Express Avenue,2,21:00,Food Court,60,30,199,14
+Express Avenue,2,21:00,Adidas,20,40,57,10
+Express Avenue,2,21:00,Pantaloons,80,50,151,10
+Express Avenue,2,21:00,Van Heusen,90,20,153,9
+Express Avenue,3,21:00,Timezone,50,50,236,7
+Express Avenue,3,21:00,KFC,80,60,259,14
+Express Avenue,3,21:00,Raymond,60,70,52,14
+Express Avenue,3,21:00,Woodland,90,10,220,8
+Express Avenue,3,21:00,Fabindia,30,20,221,14
+Orion Mall,0,10:00,Zara,70,20,105,2
+Orion Mall,0,10:00,Starbucks,20,10,143,2
+Orion Mall,0,10:00,Nike,10,30,165,5
+Orion Mall,0,10:00,Shoppers Stop,40,70,180,1
+Orion Mall,0,10:00,Marks & Spencer,30,40,288,3
+Orion Mall,1,10:00,Samsung,10,20,266,5
+Orion Mall,1,10:00,H&M,40,40,216,2
+Orion Mall,1,10:00,Pizza Hut,30,70,277,2
+Orion Mall,1,10:00,Tanishq,60,10,140,5
+Orion Mall,1,10:00,Forever 21,50,30,70,4
+Orion Mall,2,10:00,PVR Cinemas,50,70,300,5
+Orion Mall,2,10:00,Food Court,60,10,92,2
+Orion Mall,2,10:00,Puma,80,20,249,2
+Orion Mall,2,10:00,Bata,10,40,299,1
+Orion Mall,2,10:00,United Colors of Benetton,40,30,96,2
+Orion Mall,3,10:00,Funzone,70,10,136,5
+Orion Mall,3,10:00,Domino's,10,30,128,1
+Orion Mall,3,10:00,Arrow,50,60,90,1
+Orion Mall,3,10:00,Woodland,80,70,184,4
+Orion Mall,3,10:00,Croma,20,20,157,4
+Orion Mall,0,11:00,Zara,70,20,105,2
+Orion Mall,0,11:00,Starbucks,20,10,143,5
+Orion Mall,0,11:00,Nike,10,30,165,4
+Orion Mall,0,11:00,Shoppers Stop,40,70,180,1
+Orion Mall,0,11:00,Marks & Spencer,30,40,288,3
+Orion Mall,1,11:00,Samsung,10,20,266,3
+Orion Mall,1,11:00,H&M,40,40,216,5
+Orion Mall,1,11:00,Pizza Hut,30,70,277,5
+Orion Mall,1,11:00,Tanishq,60,10,140,4
+Orion Mall,1,11:00,Forever 21,50,30,70,2
+Orion Mall,2,11:00,PVR Cinemas,50,70,300,1
+Orion Mall,2,11:00,Food Court,60,10,92,4
+Orion Mall,2,11:00,Puma,80,20,249,3
+Orion Mall,2,11:00,Bata,10,40,299,2
+Orion Mall,2,11:00,United Colors of Benetton,40,30,96,3
+Orion Mall,3,11:00,Funzone,70,10,136,3
+Orion Mall,3,11:00,Domino's,10,30,128,5
+Orion Mall,3,11:00,Arrow,50,60,90,5
+Orion Mall,3,11:00,Woodland,80,70,184,5
+Orion Mall,3,11:00,Croma,20,20,157,3
+Orion Mall,0,12:00,Zara,70,20,105,4
+Orion Mall,0,12:00,Starbucks,20,10,143,1
+Orion Mall,0,12:00,Nike,10,30,165,1
+Orion Mall,0,12:00,Shoppers Stop,40,70,180,3
+Orion Mall,0,12:00,Marks & Spencer,30,40,288,5
+Orion Mall,1,12:00,Samsung,10,20,266,1
+Orion Mall,1,12:00,H&M,40,40,216,1
+Orion Mall,1,12:00,Pizza Hut,30,70,277,5
+Orion Mall,1,12:00,Tanishq,60,10,140,4
+Orion Mall,1,12:00,Forever 21,50,30,70,3
+Orion Mall,2,12:00,PVR Cinemas,50,70,300,2
+Orion Mall,2,12:00,Food Court,60,10,92,3
+Orion Mall,2,12:00,Puma,80,20,249,5
+Orion Mall,2,12:00,Bata,10,40,299,5
+Orion Mall,2,12:00,United Colors of Benetton,40,30,96,1
+Orion Mall,3,12:00,Funzone,70,10,136,2
+Orion Mall,3,12:00,Domino's,10,30,128,5
+Orion Mall,3,12:00,Arrow,50,60,90,2
+Orion Mall,3,12:00,Woodland,80,70,184,1
+Orion Mall,3,12:00,Croma,20,20,157,3
+Orion Mall,0,13:00,Zara,70,20,105,4
+Orion Mall,0,13:00,Starbucks,20,10,143,2
+Orion Mall,0,13:00,Nike,10,30,165,5
+Orion Mall,0,13:00,Shoppers Stop,40,70,180,1
+Orion Mall,0,13:00,Marks & Spencer,30,40,288,1
+Orion Mall,1,13:00,Samsung,10,20,266,2
+Orion Mall,1,13:00,H&M,40,40,216,3
+Orion Mall,1,13:00,Pizza Hut,30,70,277,1
+Orion Mall,1,13:00,Tanishq,60,10,140,1
+Orion Mall,1,13:00,Forever 21,50,30,70,4
+Orion Mall,2,13:00,PVR Cinemas,50,70,300,3
+Orion Mall,2,13:00,Food Court,60,10,92,4
+Orion Mall,2,13:00,Puma,80,20,249,5
+Orion Mall,2,13:00,Bata,10,40,299,3
+Orion Mall,2,13:00,United Colors of Benetton,40,30,96,2
+Orion Mall,3,13:00,Funzone,70,10,136,1
+Orion Mall,3,13:00,Domino's,10,30,128,4
+Orion Mall,3,13:00,Arrow,50,60,90,2
+Orion Mall,3,13:00,Woodland,80,70,184,2
+Orion Mall,3,13:00,Croma,20,20,157,5
+Orion Mall,0,14:00,Zara,70,20,105,2
+Orion Mall,0,14:00,Starbucks,20,10,143,2
+Orion Mall,0,14:00,Nike,10,30,165,5
+Orion Mall,0,14:00,Shoppers Stop,40,70,180,1
+Orion Mall,0,14:00,Marks & Spencer,30,40,288,3
+Orion Mall,1,14:00,Samsung,10,20,266,3
+Orion Mall,1,14:00,H&M,40,40,216,1
+Orion Mall,1,14:00,Pizza Hut,30,70,277,1
+Orion Mall,1,14:00,Tanishq,60,10,140,2
+Orion Mall,1,14:00,Forever 21,50,30,70,1
+Orion Mall,2,14:00,PVR Cinemas,50,70,300,2
+Orion Mall,2,14:00,Food Court,60,10,92,4
+Orion Mall,2,14:00,Puma,80,20,249,3
+Orion Mall,2,14:00,Bata,10,40,299,5
+Orion Mall,2,14:00,United Colors of Benetton,40,30,96,4
+Orion Mall,3,14:00,Funzone,70,10,136,3
+Orion Mall,3,14:00,Domino's,10,30,128,5
+Orion Mall,3,14:00,Arrow,50,60,90,3
+Orion Mall,3,14:00,Woodland,80,70,184,1
+Orion Mall,3,14:00,Croma,20,20,157,5
+Orion Mall,0,15:00,Zara,70,20,105,5
+Orion Mall,0,15:00,Starbucks,20,10,143,1
+Orion Mall,0,15:00,Nike,10,30,165,2
+Orion Mall,0,15:00,Shoppers Stop,40,70,180,4
+Orion Mall,0,15:00,Marks & Spencer,30,40,288,5
+Orion Mall,1,15:00,Samsung,10,20,266,3
+Orion Mall,1,15:00,H&M,40,40,216,5
+Orion Mall,1,15:00,Pizza Hut,30,70,277,3
+Orion Mall,1,15:00,Tanishq,60,10,140,3
+Orion Mall,1,15:00,Forever 21,50,30,70,2
+Orion Mall,2,15:00,PVR Cinemas,50,70,300,3
+Orion Mall,2,15:00,Food Court,60,10,92,3
+Orion Mall,2,15:00,Puma,80,20,249,1
+Orion Mall,2,15:00,Bata,10,40,299,5
+Orion Mall,2,15:00,United Colors of Benetton,40,30,96,3
+Orion Mall,3,15:00,Funzone,70,10,136,1
+Orion Mall,3,15:00,Domino's,10,30,128,4
+Orion Mall,3,15:00,Arrow,50,60,90,1
+Orion Mall,3,15:00,Woodland,80,70,184,4
+Orion Mall,3,15:00,Croma,20,20,157,2
+Orion Mall,0,16:00,Zara,70,20,105,5
+Orion Mall,0,16:00,Starbucks,20,10,143,3
+Orion Mall,0,16:00,Nike,10,30,165,1
+Orion Mall,0,16:00,Shoppers Stop,40,70,180,2
+Orion Mall,0,16:00,Marks & Spencer,30,40,288,2
+Orion Mall,1,16:00,Samsung,10,20,266,4
+Orion Mall,1,16:00,H&M,40,40,216,3
+Orion Mall,1,16:00,Pizza Hut,30,70,277,5
+Orion Mall,1,16:00,Tanishq,60,10,140,4
+Orion Mall,1,16:00,Forever 21,50,30,70,4
+Orion Mall,2,16:00,PVR Cinemas,50,70,300,5
+Orion Mall,2,16:00,Food Court,60,10,92,5
+Orion Mall,2,16:00,Puma,80,20,249,1
+Orion Mall,2,16:00,Bata,10,40,299,3
+Orion Mall,2,16:00,United Colors of Benetton,40,30,96,4
+Orion Mall,3,16:00,Funzone,70,10,136,5
+Orion Mall,3,16:00,Domino's,10,30,128,2
+Orion Mall,3,16:00,Arrow,50,60,90,2
+Orion Mall,3,16:00,Woodland,80,70,184,5
+Orion Mall,3,16:00,Croma,20,20,157,5
+Orion Mall,0,17:00,Zara,70,20,105,2
+Orion Mall,0,17:00,Starbucks,20,10,143,4
+Orion Mall,0,17:00,Nike,10,30,165,4
+Orion Mall,0,17:00,Shoppers Stop,40,70,180,3
+Orion Mall,0,17:00,Marks & Spencer,30,40,288,3
+Orion Mall,1,17:00,Samsung,10,20,266,3
+Orion Mall,1,17:00,H&M,40,40,216,2
+Orion Mall,1,17:00,Pizza Hut,30,70,277,1
+Orion Mall,1,17:00,Tanishq,60,10,140,5
+Orion Mall,1,17:00,Forever 21,50,30,70,4
+Orion Mall,2,17:00,PVR Cinemas,50,70,300,1
+Orion Mall,2,17:00,Food Court,60,10,92,5
+Orion Mall,2,17:00,Puma,80,20,249,3
+Orion Mall,2,17:00,Bata,10,40,299,2
+Orion Mall,2,17:00,United Colors of Benetton,40,30,96,2
+Orion Mall,3,17:00,Funzone,70,10,136,3
+Orion Mall,3,17:00,Domino's,10,30,128,5
+Orion Mall,3,17:00,Arrow,50,60,90,2
+Orion Mall,3,17:00,Woodland,80,70,184,1
+Orion Mall,3,17:00,Croma,20,20,157,2
+Orion Mall,0,18:00,Zara,70,20,105,5
+Orion Mall,0,18:00,Starbucks,20,10,143,5
+Orion Mall,0,18:00,Nike,10,30,165,1
+Orion Mall,0,18:00,Shoppers Stop,40,70,180,1
+Orion Mall,0,18:00,Marks & Spencer,30,40,288,4
+Orion Mall,1,18:00,Samsung,10,20,266,4
+Orion Mall,1,18:00,H&M,40,40,216,1
+Orion Mall,1,18:00,Pizza Hut,30,70,277,1
+Orion Mall,1,18:00,Tanishq,60,10,140,3
+Orion Mall,1,18:00,Forever 21,50,30,70,5
+Orion Mall,2,18:00,PVR Cinemas,50,70,300,3
+Orion Mall,2,18:00,Food Court,60,10,92,1
+Orion Mall,2,18:00,Puma,80,20,249,4
+Orion Mall,2,18:00,Bata,10,40,299,2
+Orion Mall,2,18:00,United Colors of Benetton,40,30,96,3
+Orion Mall,3,18:00,Funzone,70,10,136,1
+Orion Mall,3,18:00,Domino's,10,30,128,5
+Orion Mall,3,18:00,Arrow,50,60,90,3
+Orion Mall,3,18:00,Woodland,80,70,184,1
+Orion Mall,3,18:00,Croma,20,20,157,2
+Orion Mall,0,19:00,Zara,70,20,105,2
+Orion Mall,0,19:00,Starbucks,20,10,143,2
+Orion Mall,0,19:00,Nike,10,30,165,3
+Orion Mall,0,19:00,Shoppers Stop,40,70,180,2
+Orion Mall,0,19:00,Marks & Spencer,30,40,288,4
+Orion Mall,1,19:00,Samsung,10,20,266,3
+Orion Mall,1,19:00,H&M,40,40,216,4
+Orion Mall,1,19:00,Pizza Hut,30,70,277,2
+Orion Mall,1,19:00,Tanishq,60,10,140,1
+Orion Mall,1,19:00,Forever 21,50,30,70,5
+Orion Mall,2,19:00,PVR Cinemas,50,70,300,5
+Orion Mall,2,19:00,Food Court,60,10,92,2
+Orion Mall,2,19:00,Puma,80,20,249,3
+Orion Mall,2,19:00,Bata,10,40,299,2
+Orion Mall,2,19:00,United Colors of Benetton,40,30,96,3
+Orion Mall,3,19:00,Funzone,70,10,136,3
+Orion Mall,3,19:00,Domino's,10,30,128,4
+Orion Mall,3,19:00,Arrow,50,60,90,4
+Orion Mall,3,19:00,Woodland,80,70,184,3
+Orion Mall,3,19:00,Croma,20,20,157,3
+Orion Mall,0,20:00,Zara,70,20,105,3
+Orion Mall,0,20:00,Starbucks,20,10,143,5
+Orion Mall,0,20:00,Nike,10,30,165,5
+Orion Mall,0,20:00,Shoppers Stop,40,70,180,4
+Orion Mall,0,20:00,Marks & Spencer,30,40,288,4
+Orion Mall,1,20:00,Samsung,10,20,266,5
+Orion Mall,1,20:00,H&M,40,40,216,2
+Orion Mall,1,20:00,Pizza Hut,30,70,277,2
+Orion Mall,1,20:00,Tanishq,60,10,140,1
+Orion Mall,1,20:00,Forever 21,50,30,70,5
+Orion Mall,2,20:00,PVR Cinemas,50,70,300,3
+Orion Mall,2,20:00,Food Court,60,10,92,5
+Orion Mall,2,20:00,Puma,80,20,249,1
+Orion Mall,2,20:00,Bata,10,40,299,1
+Orion Mall,2,20:00,United Colors of Benetton,40,30,96,2
+Orion Mall,3,20:00,Funzone,70,10,136,2
+Orion Mall,3,20:00,Domino's,10,30,128,4
+Orion Mall,3,20:00,Arrow,50,60,90,4
+Orion Mall,3,20:00,Woodland,80,70,184,1
+Orion Mall,3,20:00,Croma,20,20,157,5
+Orion Mall,0,21:00,Zara,70,20,105,4
+Orion Mall,0,21:00,Starbucks,20,10,143,1
+Orion Mall,0,21:00,Nike,10,30,165,2
+Orion Mall,0,21:00,Shoppers Stop,40,70,180,2
+Orion Mall,0,21:00,Marks & Spencer,30,40,288,4
+Orion Mall,1,21:00,Samsung,10,20,266,3
+Orion Mall,1,21:00,H&M,40,40,216,4
+Orion Mall,1,21:00,Pizza Hut,30,70,277,2
+Orion Mall,1,21:00,Tanishq,60,10,140,5
+Orion Mall,1,21:00,Forever 21,50,30,70,2
+Orion Mall,2,21:00,PVR Cinemas,50,70,300,3
+Orion Mall,2,21:00,Food Court,60,10,92,1
+Orion Mall,2,21:00,Puma,80,20,249,4
+Orion Mall,2,21:00,Bata,10,40,299,4
+Orion Mall,2,21:00,United Colors of Benetton,40,30,96,4
+Orion Mall,3,21:00,Funzone,70,10,136,1
+Orion Mall,3,21:00,Domino's,10,30,128,5
+Orion Mall,3,21:00,Arrow,50,60,90,3
+Orion Mall,3,21:00,Woodland,80,70,184,4
+Orion Mall,3,21:00,Croma,20,20,157,2
+South City Mall,0,10:00,Pantaloons,60,30,97,20
+South City Mall,0,10:00,McDonald's,90,20,195,16
+South City Mall,0,10:00,Levi's,80,60,195,25
+South City Mall,0,10:00,Titan,30,70,136,31
+South City Mall,0,10:00,Lifestyle,20,10,90,29
+South City Mall,1,10:00,Apple Authorized Store,50,50,60,35
+South City Mall,1,10:00,KFC,10,70,61,18
+South City Mall,1,10:00,H&M,30,60,100,18
+South City Mall,1,10:00,Bata,40,10,246,16
+South City Mall,1,10:00,Van Heusen,80,20,90,22
+South City Mall,2,10:00,Inox Cinema,50,50,176,19
+South City Mall,2,10:00,Food Court,10,70,74,26
+South City Mall,2,10:00,Adidas,90,30,153,16
+South City Mall,2,10:00,Mango,30,60,286,29
+South City Mall,2,10:00,Fabindia,40,40,296,25
+South City Mall,3,10:00,Fun Republic,10,10,86,33
+South City Mall,3,10:00,Starbucks,90,50,217,25
+South City Mall,3,10:00,Raymond,50,70,176,21
+South City Mall,3,10:00,Woodland,30,20,289,32
+South City Mall,3,10:00,Shoppers Stop,40,30,178,34
+South City Mall,0,11:00,Pantaloons,60,30,97,30
+South City Mall,0,11:00,McDonald's,90,20,195,17
+South City Mall,0,11:00,Levi's,80,60,195,33
+South City Mall,0,11:00,Titan,30,70,136,25
+South City Mall,0,11:00,Lifestyle,20,10,90,16
+South City Mall,1,11:00,Apple Authorized Store,50,50,60,25
+South City Mall,1,11:00,KFC,10,70,61,29
+South City Mall,1,11:00,H&M,30,60,100,32
+South City Mall,1,11:00,Bata,40,10,246,16
+South City Mall,1,11:00,Van Heusen,80,20,90,28
+South City Mall,2,11:00,Inox Cinema,50,50,176,19
+South City Mall,2,11:00,Food Court,10,70,74,20
+South City Mall,2,11:00,Adidas,90,30,153,17
+South City Mall,2,11:00,Mango,30,60,286,26
+South City Mall,2,11:00,Fabindia,40,40,296,31
+South City Mall,3,11:00,Fun Republic,10,10,86,21
+South City Mall,3,11:00,Starbucks,90,50,217,34
+South City Mall,3,11:00,Raymond,50,70,176,25
+South City Mall,3,11:00,Woodland,30,20,289,18
+South City Mall,3,11:00,Shoppers Stop,40,30,178,18
+South City Mall,0,12:00,Pantaloons,60,30,97,21
+South City Mall,0,12:00,McDonald's,90,20,195,27
+South City Mall,0,12:00,Levi's,80,60,195,32
+South City Mall,0,12:00,Titan,30,70,136,28
+South City Mall,0,12:00,Lifestyle,20,10,90,29
+South City Mall,1,12:00,Apple Authorized Store,50,50,60,19
+South City Mall,1,12:00,KFC,10,70,61,16
+South City Mall,1,12:00,H&M,30,60,100,21
+South City Mall,1,12:00,Bata,40,10,246,22
+South City Mall,1,12:00,Van Heusen,80,20,90,19
+South City Mall,2,12:00,Inox Cinema,50,50,176,17
+South City Mall,2,12:00,Food Court,10,70,74,34
+South City Mall,2,12:00,Adidas,90,30,153,25
+South City Mall,2,12:00,Mango,30,60,286,26
+South City Mall,2,12:00,Fabindia,40,40,296,35
+South City Mall,3,12:00,Fun Republic,10,10,86,23
+South City Mall,3,12:00,Starbucks,90,50,217,24
+South City Mall,3,12:00,Raymond,50,70,176,28
+South City Mall,3,12:00,Woodland,30,20,289,28
+South City Mall,3,12:00,Shoppers Stop,40,30,178,16
+South City Mall,0,13:00,Pantaloons,60,30,97,34
+South City Mall,0,13:00,McDonald's,90,20,195,29
+South City Mall,0,13:00,Levi's,80,60,195,22
+South City Mall,0,13:00,Titan,30,70,136,33
+South City Mall,0,13:00,Lifestyle,20,10,90,27
+South City Mall,1,13:00,Apple Authorized Store,50,50,60,28
+South City Mall,1,13:00,KFC,10,70,61,25
+South City Mall,1,13:00,H&M,30,60,100,24
+South City Mall,1,13:00,Bata,40,10,246,24
+South City Mall,1,13:00,Van Heusen,80,20,90,19
+South City Mall,2,13:00,Inox Cinema,50,50,176,17
+South City Mall,2,13:00,Food Court,10,70,74,34
+South City Mall,2,13:00,Adidas,90,30,153,33
+South City Mall,2,13:00,Mango,30,60,286,18
+South City Mall,2,13:00,Fabindia,40,40,296,29
+South City Mall,3,13:00,Fun Republic,10,10,86,16
+South City Mall,3,13:00,Starbucks,90,50,217,25
+South City Mall,3,13:00,Raymond,50,70,176,16
+South City Mall,3,13:00,Woodland,30,20,289,24
+South City Mall,3,13:00,Shoppers Stop,40,30,178,32
+South City Mall,0,14:00,Pantaloons,60,30,97,27
+South City Mall,0,14:00,McDonald's,90,20,195,31
+South City Mall,0,14:00,Levi's,80,60,195,35
+South City Mall,0,14:00,Titan,30,70,136,17
+South City Mall,0,14:00,Lifestyle,20,10,90,19
+South City Mall,1,14:00,Apple Authorized Store,50,50,60,29
+South City Mall,1,14:00,KFC,10,70,61,23
+South City Mall,1,14:00,H&M,30,60,100,32
+South City Mall,1,14:00,Bata,40,10,246,22
+South City Mall,1,14:00,Van Heusen,80,20,90,32
+South City Mall,2,14:00,Inox Cinema,50,50,176,17
+South City Mall,2,14:00,Food Court,10,70,74,20
+South City Mall,2,14:00,Adidas,90,30,153,19
+South City Mall,2,14:00,Mango,30,60,286,29
+South City Mall,2,14:00,Fabindia,40,40,296,34
+South City Mall,3,14:00,Fun Republic,10,10,86,23
+South City Mall,3,14:00,Starbucks,90,50,217,28
+South City Mall,3,14:00,Raymond,50,70,176,34
+South City Mall,3,14:00,Woodland,30,20,289,28
+South City Mall,3,14:00,Shoppers Stop,40,30,178,33
+South City Mall,0,15:00,Pantaloons,60,30,97,22
+South City Mall,0,15:00,McDonald's,90,20,195,19
+South City Mall,0,15:00,Levi's,80,60,195,27
+South City Mall,0,15:00,Titan,30,70,136,30
+South City Mall,0,15:00,Lifestyle,20,10,90,27
+South City Mall,1,15:00,Apple Authorized Store,50,50,60,34
+South City Mall,1,15:00,KFC,10,70,61,24
+South City Mall,1,15:00,H&M,30,60,100,25
+South City Mall,1,15:00,Bata,40,10,246,35
+South City Mall,1,15:00,Van Heusen,80,20,90,29
+South City Mall,2,15:00,Inox Cinema,50,50,176,31
+South City Mall,2,15:00,Food Court,10,70,74,32
+South City Mall,2,15:00,Adidas,90,30,153,17
+South City Mall,2,15:00,Mango,30,60,286,24
+South City Mall,2,15:00,Fabindia,40,40,296,16
+South City Mall,3,15:00,Fun Republic,10,10,86,28
+South City Mall,3,15:00,Starbucks,90,50,217,22
+South City Mall,3,15:00,Raymond,50,70,176,35
+South City Mall,3,15:00,Woodland,30,20,289,32
+South City Mall,3,15:00,Shoppers Stop,40,30,178,25
+South City Mall,0,16:00,Pantaloons,60,30,97,16
+South City Mall,0,16:00,McDonald's,90,20,195,25
+South City Mall,0,16:00,Levi's,80,60,195,23
+South City Mall,0,16:00,Titan,30,70,136,16
+South City Mall,0,16:00,Lifestyle,20,10,90,18
+South City Mall,1,16:00,Apple Authorized Store,50,50,60,29
+South City Mall,1,16:00,KFC,10,70,61,19
+South City Mall,1,16:00,H&M,30,60,100,26
+South City Mall,1,16:00,Bata,40,10,246,35
+South City Mall,1,16:00,Van Heusen,80,20,90,25
+South City Mall,2,16:00,Inox Cinema,50,50,176,20
+South City Mall,2,16:00,Food Court,10,70,74,24
+South City Mall,2,16:00,Adidas,90,30,153,29
+South City Mall,2,16:00,Mango,30,60,286,30
+South City Mall,2,16:00,Fabindia,40,40,296,29
+South City Mall,3,16:00,Fun Republic,10,10,86,19
+South City Mall,3,16:00,Starbucks,90,50,217,29
+South City Mall,3,16:00,Raymond,50,70,176,25
+South City Mall,3,16:00,Woodland,30,20,289,23
+South City Mall,3,16:00,Shoppers Stop,40,30,178,32
+South City Mall,0,17:00,Pantaloons,60,30,97,20
+South City Mall,0,17:00,McDonald's,90,20,195,29
+South City Mall,0,17:00,Levi's,80,60,195,34
+South City Mall,0,17:00,Titan,30,70,136,16
+South City Mall,0,17:00,Lifestyle,20,10,90,31
+South City Mall,1,17:00,Apple Authorized Store,50,50,60,35
+South City Mall,1,17:00,KFC,10,70,61,30
+South City Mall,1,17:00,H&M,30,60,100,32
+South City Mall,1,17:00,Bata,40,10,246,28
+South City Mall,1,17:00,Van Heusen,80,20,90,18
+South City Mall,2,17:00,Inox Cinema,50,50,176,24
+South City Mall,2,17:00,Food Court,10,70,74,34
+South City Mall,2,17:00,Adidas,90,30,153,26
+South City Mall,2,17:00,Mango,30,60,286,17
+South City Mall,2,17:00,Fabindia,40,40,296,33
+South City Mall,3,17:00,Fun Republic,10,10,86,29
+South City Mall,3,17:00,Starbucks,90,50,217,27
+South City Mall,3,17:00,Raymond,50,70,176,20
+South City Mall,3,17:00,Woodland,30,20,289,26
+South City Mall,3,17:00,Shoppers Stop,40,30,178,33
+South City Mall,0,18:00,Pantaloons,60,30,97,26
+South City Mall,0,18:00,McDonald's,90,20,195,22
+South City Mall,0,18:00,Levi's,80,60,195,34
+South City Mall,0,18:00,Titan,30,70,136,24
+South City Mall,0,18:00,Lifestyle,20,10,90,22
+South City Mall,1,18:00,Apple Authorized Store,50,50,60,19
+South City Mall,1,18:00,KFC,10,70,61,34
+South City Mall,1,18:00,H&M,30,60,100,29
+South City Mall,1,18:00,Bata,40,10,246,26
+South City Mall,1,18:00,Van Heusen,80,20,90,25
+South City Mall,2,18:00,Inox Cinema,50,50,176,19
+South City Mall,2,18:00,Food Court,10,70,74,23
+South City Mall,2,18:00,Adidas,90,30,153,26
+South City Mall,2,18:00,Mango,30,60,286,27
+South City Mall,2,18:00,Fabindia,40,40,296,34
+South City Mall,3,18:00,Fun Republic,10,10,86,21
+South City Mall,3,18:00,Starbucks,90,50,217,20
+South City Mall,3,18:00,Raymond,50,70,176,25
+South City Mall,3,18:00,Woodland,30,20,289,17
+South City Mall,3,18:00,Shoppers Stop,40,30,178,17
+South City Mall,0,19:00,Pantaloons,60,30,97,19
+South City Mall,0,19:00,McDonald's,90,20,195,26
+South City Mall,0,19:00,Levi's,80,60,195,17
+South City Mall,0,19:00,Titan,30,70,136,27
+South City Mall,0,19:00,Lifestyle,20,10,90,27
+South City Mall,1,19:00,Apple Authorized Store,50,50,60,24
+South City Mall,1,19:00,KFC,10,70,61,34
+South City Mall,1,19:00,H&M,30,60,100,26
+South City Mall,1,19:00,Bata,40,10,246,29
+South City Mall,1,19:00,Van Heusen,80,20,90,18
+South City Mall,2,19:00,Inox Cinema,50,50,176,25
+South City Mall,2,19:00,Food Court,10,70,74,27
+South City Mall,2,19:00,Adidas,90,30,153,33
+South City Mall,2,19:00,Mango,30,60,286,18
+South City Mall,2,19:00,Fabindia,40,40,296,19
+South City Mall,3,19:00,Fun Republic,10,10,86,28
+South City Mall,3,19:00,Starbucks,90,50,217,33
+South City Mall,3,19:00,Raymond,50,70,176,28
+South City Mall,3,19:00,Woodland,30,20,289,16
+South City Mall,3,19:00,Shoppers Stop,40,30,178,20
+South City Mall,0,20:00,Pantaloons,60,30,97,29
+South City Mall,0,20:00,McDonald's,90,20,195,22
+South City Mall,0,20:00,Levi's,80,60,195,32
+South City Mall,0,20:00,Titan,30,70,136,27
+South City Mall,0,20:00,Lifestyle,20,10,90,18
+South City Mall,1,20:00,Apple Authorized Store,50,50,60,29
+South City Mall,1,20:00,KFC,10,70,61,31
+South City Mall,1,20:00,H&M,30,60,100,32
+South City Mall,1,20:00,Bata,40,10,246,24
+South City Mall,1,20:00,Van Heusen,80,20,90,28
+South City Mall,2,20:00,Inox Cinema,50,50,176,32
+South City Mall,2,20:00,Food Court,10,70,74,33
+South City Mall,2,20:00,Adidas,90,30,153,28
+South City Mall,2,20:00,Mango,30,60,286,17
+South City Mall,2,20:00,Fabindia,40,40,296,16
+South City Mall,3,20:00,Fun Republic,10,10,86,17
+South City Mall,3,20:00,Starbucks,90,50,217,17
+South City Mall,3,20:00,Raymond,50,70,176,22
+South City Mall,3,20:00,Woodland,30,20,289,19
+South City Mall,3,20:00,Shoppers Stop,40,30,178,21
+South City Mall,0,21:00,Pantaloons,60,30,97,27
+South City Mall,0,21:00,McDonald's,90,20,195,33
+South City Mall,0,21:00,Levi's,80,60,195,28
+South City Mall,0,21:00,Titan,30,70,136,33
+South City Mall,0,21:00,Lifestyle,20,10,90,29
+South City Mall,1,21:00,Apple Authorized Store,50,50,60,29
+South City Mall,1,21:00,KFC,10,70,61,32
+South City Mall,1,21:00,H&M,30,60,100,33
+South City Mall,1,21:00,Bata,40,10,246,19
+South City Mall,1,21:00,Van Heusen,80,20,90,31
+South City Mall,2,21:00,Inox Cinema,50,50,176,17
+South City Mall,2,21:00,Food Court,10,70,74,20
+South City Mall,2,21:00,Adidas,90,30,153,17
+South City Mall,2,21:00,Mango,30,60,286,20
+South City Mall,2,21:00,Fabindia,40,40,296,16
+South City Mall,3,21:00,Fun Republic,10,10,86,16
+South City Mall,3,21:00,Starbucks,90,50,217,27
+South City Mall,3,21:00,Raymond,50,70,176,19
+South City Mall,3,21:00,Woodland,30,20,289,17
+South City Mall,3,21:00,Shoppers Stop,40,30,178,24

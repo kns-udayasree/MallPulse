@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ stall_id }} - MallPulse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <script>
+        if(localStorage.getItem('mallpulse_darkmode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    <!-- 1. TOP NAV BAR -->
+    <header class="top-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <a href="/dashboard" style="text-decoration: none; color: var(--teal); margin-right: 8px; font-weight: bold;">←</a>
+                <span class="logo">🏢 MallPulse</span>
+            </div>
+            <div class="nav-right">
+                <button class="icon-btn" onclick="location.href='/alerts'" style="position: relative;">
+                    🔔
+                    <span id="nav-alert-badge" style="display: none; position: absolute; top: -2px; right: -2px; width: 10px; height: 10px; background: red; border-radius: 50%; border: 2px solid var(--card-bg);"></span>
+                </button>
+                <button class="icon-btn" onclick="location.href='/settings'">⚙️</button>
+            </div>
+        </div>
+        <div class="subtitle" id="mall-subtitle">
+            <span class="skeleton skeleton-text"></span>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- 1. STORE HEADER -->
+        <section class="store-header" id="store-header" style="margin-top: 16px;">
+            <div class="skeleton skeleton-text" style="height: 32px; width: 50%;"></div>
+            <div class="skeleton skeleton-text" style="height: 20px; width: 30%;"></div>
+        </section>
+
+        <!-- 2. QUICK STATS ROW -->
+        <section class="quick-stats" id="quick-stats" style="margin-top: 16px;">
+            <div class="stats-grid">
+                <div class="stat-card skeleton-card" style="height: 60px;"></div>
+                <div class="stat-card skeleton-card" style="height: 60px;"></div>
+                <div class="stat-card skeleton-card" style="height: 60px;"></div>
+            </div>
+        </section>
+
+        <!-- 3. TODAY'S CROWD TIMELINE -->
+        <section class="store-section timeline-section" style="margin-top: 24px;">
+            <h2>How busy is it through the day?</h2>
+            <div class="timeline-container" id="timeline-container" style="display: flex; align-items: flex-end; gap: 8px; height: 120px; overflow-x: auto; padding-bottom: 24px; border-bottom: 1px dashed var(--border); margin-top: 16px;">
+                 <div class="skeleton skeleton-text" style="height: 100%; width: 100%;"></div>
+            </div>
+        </section>
+
+        <!-- 4. ALERT ME SECTION -->
+        <section class="store-section alert-section" style="margin-top: 24px; background: var(--card-bg); padding: 16px; border-radius: 16px; border: 1px solid var(--border);">
+            <h2>🔔 Get notified when it's quiet</h2>
+            <div style="margin-top: 12px; display: flex; align-items: center; justify-content: space-between;">
+                <span>Alert me when fewer than</span>
+                <div class="stepper">
+                    <button id="alert-minus" class="stepper-btn">-</button>
+                    <input type="number" id="alert-val" value="10" readonly style="width: 40px; text-align: center; border: none; font-family: 'Poppins'; font-weight: 600;">
+                    <button id="alert-plus" class="stepper-btn">+</button>
+                </div>
+                <span>people</span>
+            </div>
+            <button id="set-alert-btn" class="btn-teal" style="width: 100%; margin-top: 16px;">Set Alert</button>
+        </section>
+
+        <!-- 5. SIMILAR STORES SECTION -->
+        <section class="store-section similar-section" style="margin-top: 24px;">
+            <h2>Also consider visiting...</h2>
+            <div id="similar-stores" class="similar-grid" style="display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px;">
+                 <div class="skeleton skeleton-card" style="height: 80px;"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast" class="toast"></div>
+
+    <script>
+        const STALL_ID = "{{ stall_id }}";
+    </script>
+    <script src="{{ url_for('static', filename='js/store.js') }}"></script>
+</body>
+</html>

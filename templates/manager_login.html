@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Portal - MallPulse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .login-card.shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .emoji {
+            font-size: 64px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 32px;
+        }
+
+        .password-input {
+            width: 100%;
+            height: 48px;
+            border: 2px solid #e0e0e0;
+            border-radius: 50px;
+            padding: 0 20px;
+            font-size: 16px;
+            margin-bottom: 24px;
+            transition: border-color 0.3s;
+            box-sizing: border-box;
+        }
+
+        .password-input:focus {
+            outline: none;
+            border-color: #00B8A9;
+        }
+
+        .login-btn {
+            width: 100%;
+            height: 48px;
+            background: #00B8A9;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .login-btn:hover {
+            background: #00a69a;
+            transform: translateY(-2px);
+        }
+
+        .login-btn:active {
+            transform: translateY(0);
+        }
+
+        .login-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 16px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                margin: 20px;
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-card" id="login-card">
+        <div class="emoji">👔</div>
+        <h1 class="title">Manager Portal</h1>
+        <p class="subtitle">MallPulse Internal System</p>
+        
+        <form id="login-form">
+            <input 
+                type="password" 
+                id="password" 
+                class="password-input" 
+                placeholder="Enter manager password"
+                required
+                autocomplete="current-password"
+            >
+            
+            <button type="submit" class="login-btn" id="login-btn">
+                Login →
+            </button>
+        </form>
+        
+        <div class="error-message" id="error-message">
+            Incorrect password. Try again.
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const loginBtn = document.getElementById('login-btn');
+            const loginCard = document.getElementById('login-card');
+            const errorMsg = document.getElementById('error-message');
+            
+            // Hide previous error
+            errorMsg.classList.remove('show');
+            loginCard.classList.remove('shake');
+            
+            // Disable button
+            loginBtn.disabled = true;
+            loginBtn.textContent = 'Logging in...';
+            
+            try {
+                const response = await fetch('/api/manager/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ password })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // Set localStorage
+                    localStorage.setItem('manager_authenticated', 'true');
+                    
+                    // Redirect to manager dashboard
+                    window.location.href = '/manager';
+                } else {
+                    // Show error
+                    errorMsg.classList.add('show');
+                    loginCard.classList.add('shake');
+                    
+                    // Reset button
+                    loginBtn.disabled = false;
+                    loginBtn.textContent = 'Login →';
+                    
+                    // Clear password field
+                    document.getElementById('password').value = '';
+                    document.getElementById('password').focus();
+                }
+            } catch (error) {
+                // Show error
+                errorMsg.classList.add('show');
+                loginCard.classList.add('shake');
+                
+                // Reset button
+                loginBtn.disabled = false;
+                loginBtn.textContent = 'Login →';
+                
+                console.error('Login error:', error);
+            }
+        });
+
+        // Focus password field on load
+        document.getElementById('password').focus();
+    </script>
+</body>
+</html>

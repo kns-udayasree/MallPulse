@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard - MallPulse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        .header {
+            background: #0f172a;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .selector {
+            padding: 0.5rem 1rem;
+            border: 1px solid #475569;
+            background: #1e293b;
+            color: white;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .logout-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #b91c1c;
+        }
+
+        .header-info {
+            background: #1e293b;
+            color: white;
+            padding: 0.75rem 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .stat-card.new { background: #dc2626; }
+        .stat-card.acknowledged { background: #f59e0b; }
+        .stat-card.resolved { background: #10b981; }
+        .stat-card.response { background: #00B8A9; }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .tabs {
+            display: flex;
+            background: white;
+            border-radius: 12px 12px 0 0;
+            overflow: hidden;
+            margin-bottom: 0;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 1rem;
+            background: #f1f5f9;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab.active {
+            background: white;
+            border-bottom-color: #00B8A9;
+        }
+
+        .tab:hover {
+            background: #e2e8f0;
+        }
+
+        .tab-content {
+            background: white;
+            border-radius: 0 0 12px 12px;
+            padding: 1.5rem;
+            min-height: 400px;
+        }
+
+        .alert-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .alert-card.new {
+            border-left: 4px solid #f59e0b;
+        }
+
+        .alert-card.critical {
+            border-left: 4px solid #dc2626;
+            background: #fef2f2;
+        }
+
+        .alert-card.stampede {
+            background: #dc2626;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+
+        .alert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .severity-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .severity-warning { background: #f59e0b; color: white; }
+        .severity-critical { background: #dc2626; color: white; }
+        .severity-stampede { background: #7c3aed; color: white; }
+
+        .alert-details {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .alert-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .btn-acknowledge {
+            background: #10b981;
+            color: white;
+        }
+
+        .btn-acknowledge:hover {
+            background: #059669;
+        }
+
+        .btn-acknowledge:disabled {
+            background: #6b7280;
+            cursor: not-allowed;
+        }
+
+        .btn-resolve {
+            background: #6366f1;
+            color: white;
+        }
+
+        .btn-resolve:hover {
+            background: #4f46e5;
+        }
+
+        .response-time {
+            margin-top: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .response-time.excellent { background: #d1fae5; color: #065f46; }
+        .response-time.acceptable { background: #fed7aa; color: #92400e; }
+        .response-time.slow { background: #fee2e2; color: #991b1b; }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #6b7280;
+        }
+
+        .empty-state .checkmark {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: checkmark 0.5s ease-in-out;
+        }
+
+        @keyframes checkmark {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .summary-section {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-top: 2rem;
+            border: 2px solid #e2e8f0;
+        }
+
+        .summary-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1f2937;
+        }
+
+        .summary-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .summary-item {
+            padding: 0.75rem;
+            background: #f8fafc;
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .new-badge {
+            background: #dc2626;
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .pulsing-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #dc2626;
+            border-radius: 50%;
+            margin-left: 0.5rem;
+            animation: pulsing 1.5s infinite;
+        }
+
+        @keyframes pulsing {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .header-left, .header-right {
+                justify-content: center;
+            }
+
+            .header-info {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .stats-row {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .alert-actions {
+                flex-direction: column;
+            }
+
+            .tabs {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .stats-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Authentication Check -->
+    <script>
+        if (!localStorage.getItem('manager_authenticated')) {
+            window.location.href = '/manager-login';
+        }
+    </script>
+
+    <header class="header">
+        <div class="header-left">
+            <div class="logo">👔 Manager Dashboard</div>
+        </div>
+        <div class="header-right">
+            <select class="selector" id="mall-selector">
+                <option value="Inorbit Mall">Inorbit Mall</option>
+                <option value="Phoenix Palladium">Phoenix Palladium</option>
+                <option value="Express Avenue">Express Avenue</option>
+                <option value="Orion Mall">Orion Mall</option>
+                <option value="South City Mall">South City Mall</option>
+            </select>
+            <select class="selector" id="floor-selector">
+                <option value="">All Floors</option>
+                <option value="0">Floor 0</option>
+                <option value="1">Floor 1</option>
+                <option value="2">Floor 2</option>
+                <option value="3">Floor 3</option>
+            </select>
+            <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+        </div>
+    </header>
+
+    <div class="header-info">
+        <span id="filter-info">Showing alerts for: All Malls — All Floors</span>
+        <span>🔄 Auto-refreshing every 10 seconds</span>
+        <span id="last-refreshed">Last refreshed: Just now</span>
+    </div>
+
+    <div class="container">
+        <!-- Stats Row -->
+        <div class="stats-row" id="stats-row">
+            <div class="stat-card new">
+                <div class="stat-value" id="new-count">0</div>
+                <div class="stat-label">🔴 New Alerts</div>
+            </div>
+            <div class="stat-card acknowledged">
+                <div class="stat-value" id="acknowledged-count">0</div>
+                <div class="stat-label">👀 Acknowledged</div>
+            </div>
+            <div class="stat-card resolved">
+                <div class="stat-value" id="resolved-count">0</div>
+                <div class="stat-label">✅ Resolved Today</div>
+            </div>
+            <div class="stat-card response">
+                <div class="stat-value" id="response-time">0</div>
+                <div class="stat-label">⚡ min Avg Response</div>
+            </div>
+        </div>
+
+        <!-- Alert Feed -->
+        <div class="tabs">
+            <button class="tab active" onclick="switchTab('new')">
+                🔴 New (<span id="new-tab-count">0</span>)
+            </button>
+            <button class="tab" onclick="switchTab('acknowledged')">
+                🟡 In Progress (<span id="progress-tab-count">0</span>)
+            </button>
+            <button class="tab" onclick="switchTab('resolved')">
+                ✅ Resolved (<span id="resolved-tab-count">0</span>)
+            </button>
+        </div>
+
+        <div class="tab-content" id="alert-content">
+            <!-- Alert cards will be populated here -->
+        </div>
+
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <h3 class="summary-title">📊 Today's Summary</h3>
+            <div class="summary-stats" id="summary-stats">
+                <!-- Summary will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTab = 'new';
+        let currentAlerts = [];
+        let previousAlertIds = new Set();
+        let titleFlashInterval;
+        let beepAudio;
+
+        // Create beep sound using Web Audio API
+        function createBeepSound() {
+            // Keep the existing audio as fallback
+            const beepBase64 = 'UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHm8s2mSQAoUXrTp66hVFApGn+DyvmwhBSuBz/LTfSsGI3S8+OZiE0KVqzn8rJlE0KWK';
+            beepAudio = new Audio('data:audio/wav;base64,' + beepBase64);
+        }
+
+        // Play beep using Web Audio API
+        function playBeep() {
+            try {
+                const ctx = new AudioContext();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.frequency.value = 880;
+                gain.gain.value = 0.1;
+                osc.start();
+                setTimeout(() => osc.stop(), 200);
+            } catch (e) {
+                // Fallback to existing audio
+                if (beepAudio) {
+                    beepAudio.play().catch(err => console.log('Could not play beep:', err));
+                }
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createBeepSound();
+            loadAlerts();
+            loadStats();
+            startAutoRefresh();
+            
+            // Set up filter listeners
+            document.getElementById('mall-selector').addEventListener('change', updateFilterInfo);
+            document.getElementById('floor-selector').addEventListener('change', updateFilterInfo);
+        });
+
+        // Switch tabs
+        function switchTab(tab) {
+            currentTab = tab;
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelector(`[onclick="switchTab('${tab}')"]`).classList.add('active');
+            
+            // Update content
+            displayAlerts(tab);
+        }
+
+        // Update filter info
+        function updateFilterInfo() {
+            const mall = document.getElementById('mall-selector').value;
+            const floor = document.getElementById('floor-selector').value;
+            
+            let filterText = `Showing alerts for: ${mall}`;
+            if (floor) {
+                filterText += ` — Floor ${floor}`;
+            } else {
+                filterText += ' — All Floors';
+            }
+            
+            document.getElementById('filter-info').textContent = filterText;
+            displayAlerts(currentTab);
+        }
+
+        // Load alerts
+        async function loadAlerts() {
+            try {
+                const mall = document.getElementById('mall-selector').value;
+                const floor = document.getElementById('floor-selector').value;
+                
+                let url = '/api/manager/alerts';
+                const params = new URLSearchParams();
+                
+                if (mall) params.append('mall', mall);
+                if (floor) params.append('floor', floor);
+                
+                if (params.toString()) {
+                    url += '?' + params.toString();
+                }
+                
+                const response = await fetch(url);
+                const alerts = await response.json();
+                
+                // Check for new alerts
+                const newAlerts = alerts.filter(alert => !previousAlertIds.has(alert.alert_id));
+                if (newAlerts.length > 0) {
+                    playBeep();
+                    flashTitle();
+                }
+                
+                currentAlerts = alerts;
+                previousAlertIds = new Set(alerts.map(a => a.alert_id));
+                
+                updateTabCounts();
+                displayAlerts(currentTab);
+                updateLastRefreshed();
+                
+            } catch (error) {
+                console.error('Error loading alerts:', error);
+            }
+        }
+
+        // Display alerts based on current tab
+        function displayAlerts(tab) {
+            const mall = document.getElementById('mall-selector').value;
+            const floor = document.getElementById('floor-selector').value;
+            
+            let filteredAlerts = currentAlerts;
+            
+            // Apply mall/floor filters
+            if (mall) {
+                filteredAlerts = filteredAlerts.filter(a => a.mall_name === mall);
+            }
+            if (floor) {
+                filteredAlerts = filteredAlerts.filter(a => a.floor.toString() === floor);
+            }
+            
+            // Apply tab filter
+            if (tab === 'new') {
+                filteredAlerts = filteredAlerts.filter(a => !a.acknowledged && !a.resolved);
+            } else if (tab === 'acknowledged') {
+                filteredAlerts = filteredAlerts.filter(a => a.acknowledged && !a.resolved);
+            } else if (tab === 'resolved') {
+                filteredAlerts = filteredAlerts.filter(a => a.resolved);
+            }
+            
+            const content = document.getElementById('alert-content');
+            
+            if (filteredAlerts.length === 0) {
+                content.innerHTML = `
+                    <div class="empty-state">
+                        <div class="checkmark">✅</div>
+                        <h3>All clear!</h3>
+                        <p>No ${tab === 'new' ? 'new' : tab === 'acknowledged' ? 'in-progress' : 'resolved'} alerts right now.</p>
+                        <p>The admin will notify you if action is needed.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            content.innerHTML = filteredAlerts.map(alert => createAlertCard(alert)).join('');
+        }
+
+        // Create alert card HTML
+        function createAlertCard(alert) {
+            const severityClass = alert.severity.toLowerCase().includes('warning') ? 'severity-warning' :
+                                alert.severity.toLowerCase().includes('critical') ? 'severity-critical' : 'severity-stampede';
+            
+            const cardClass = alert.severity.toLowerCase().includes('stampede') ? 'stampede' :
+                              alert.severity.toLowerCase().includes('critical') ? 'critical' : 'new';
+            
+            const isNew = !alert.acknowledged && !alert.resolved;
+            const isAcknowledged = alert.acknowledged && !alert.resolved;
+            const isResolved = alert.resolved;
+            
+            let timeDisplay = alert.sent_at;
+            if (isAcknowledged) {
+                timeDisplay = alert.acknowledged_at;
+            } else if (isResolved) {
+                timeDisplay = alert.resolved_at;
+            }
+            
+            // Format time
+            const time = new Date(timeDisplay);
+            const timeStr = time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            let responseTimeHtml = '';
+            if (alert.response_time_minutes) {
+                const responseClass = alert.response_time_minutes <= 3 ? 'excellent' :
+                                  alert.response_time_minutes <= 7 ? 'acceptable' : 'slow';
+                const responseLabel = alert.response_time_minutes <= 3 ? 'Excellent' :
+                                   alert.response_time_minutes <= 7 ? 'Acceptable' : 'Slow response';
+                responseTimeHtml = `<div class="response-time ${responseClass}">⚡ Response time: ${alert.response_time_minutes} min (${responseLabel})</div>`;
+            }
+            
+            if (isResolved) {
+                // Resolved card (simpler)
+                return `
+                    <div class="alert-card" style="opacity: 0.7;">
+                        <div class="alert-header">
+                            <strong>${alert.stall_id}</strong>
+                            <span class="severity-badge ${severityClass}">${alert.severity}</span>
+                        </div>
+                        <div class="alert-details">
+                            📍 ${alert.mall_name} — Floor ${alert.floor}<br>
+                            📅 Sent: ${alert.sent_at}<br>
+                            ✅ Acknowledged: ${alert.acknowledged_at}<br>
+                            ✅ Resolved: ${alert.resolved_at}<br>
+                            ⏱ Total resolution time: ${alert.response_time_minutes || 'N/A'} min
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // New or In Progress card
+            return `
+                <div class="alert-card ${cardClass}">
+                    <div class="alert-header">
+                        <span>
+                            🚨 ${alert.severity.toUpperCase()} ${timeStr}
+                            ${isNew ? '<span class="pulsing-dot"></span>' : ''}
+                            ${isNew && Date.now() - new Date(alert.sent_at).getTime() < 60000 ? '<span class="new-badge">NEW</span>' : ''}
+                        </span>
+                    </div>
+                    <hr style="margin: 0.5rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                    <div class="alert-details">
+                        📍 ${alert.stall_id} — Floor ${alert.floor}<br>
+                        ${alert.mall_name}<br><br>
+                        👥 ${alert.population} people currently inside<br>
+                        👤 Sent by: ${alert.sent_by}
+                        ${alert.admin_message ? `<br><br>💬 "${alert.admin_message}"` : ''}
+                    </div>
+                    ${isAcknowledged ? responseTimeHtml : ''}
+                    <div style="margin-top: 1rem;">
+                        ${isNew ? '⏱ Waiting for acknowledgement...' : 
+                          isAcknowledged ? `👀 Acknowledged ${Math.floor((Date.now() - new Date(alert.acknowledged_at).getTime()) / 60000)} min ago` : ''}
+                    </div>
+                    <div class="alert-actions">
+                        ${isNew ? `<button class="btn btn-acknowledge" onclick="acknowledgeAlert('${alert.alert_id}', this)">✅ Acknowledge</button>` : ''}
+                        ${!isResolved ? `<button class="btn btn-resolve" onclick="resolveAlert('${alert.alert_id}', this)">✔️ Mark Resolved</button>` : ''}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Update tab counts
+        function updateTabCounts() {
+            const mall = document.getElementById('mall-selector').value;
+            const floor = document.getElementById('floor-selector').value;
+            
+            let filteredAlerts = currentAlerts;
+            if (mall) filteredAlerts = filteredAlerts.filter(a => a.mall_name === mall);
+            if (floor) filteredAlerts = filteredAlerts.filter(a => a.floor.toString() === floor);
+            
+            const newCount = filteredAlerts.filter(a => !a.acknowledged && !a.resolved).length;
+            const acknowledgedCount = filteredAlerts.filter(a => a.acknowledged && !a.resolved).length;
+            const resolvedCount = filteredAlerts.filter(a => a.resolved).length;
+            
+            document.getElementById('new-tab-count').textContent = newCount;
+            document.getElementById('progress-tab-count').textContent = acknowledgedCount;
+            document.getElementById('resolved-tab-count').textContent = resolvedCount;
+        }
+
+        // Load stats
+        async function loadStats() {
+            try {
+                const response = await fetch('/api/manager/stats');
+                const stats = await response.json();
+                
+                document.getElementById('new-count').textContent = stats.pending_acknowledgement;
+                document.getElementById('acknowledged-count').textContent = stats.acknowledged;
+                document.getElementById('resolved-count').textContent = stats.resolved;
+                document.getElementById('response-time').textContent = stats.avg_response_time_minutes;
+                
+                // Update summary
+                updateSummary(stats);
+                
+            } catch (error) {
+                console.error('Error loading stats:', error);
+            }
+        }
+
+        // Update summary section
+        function updateSummary(stats) {
+            const summaryHtml = `
+                <div class="summary-item">
+                    📈 <strong>${stats.total_alerts_today}</strong> alerts → <strong>${stats.acknowledged}</strong> acknowledged → <strong>${stats.resolved}</strong> resolved
+                </div>
+                <div class="summary-item">
+                    🏆 Most alerts from: <strong>${stats.most_crowded_stall}</strong> (${stats.total_alerts_today} alerts)
+                </div>
+                <div class="summary-item">
+                    ⚡ Fastest response: <strong>${stats.most_crowded_stall}</strong> — 1.5 min
+                </div>
+                <div class="summary-item">
+                    🐌 Slowest response: <strong>H&M</strong> — 12 min
+                </div>
+            `;
+            
+            document.getElementById('summary-stats').innerHTML = summaryHtml;
+        }
+
+        // Acknowledge alert
+        async function acknowledgeAlert(alertId, buttonElement) {
+            try {
+                const response = await fetch(`/api/manager/acknowledge/${alertId}`, {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Update button
+                    buttonElement.textContent = '👀 Acknowledged';
+                    buttonElement.disabled = true;
+                    
+                    // Reload data
+                    await loadAlerts();
+                    await loadStats();
+                    
+                    // Switch to In Progress tab
+                    switchTab('acknowledged');
+                }
+            } catch (error) {
+                console.error('Error acknowledging alert:', error);
+            }
+        }
+
+        // Resolve alert
+        async function resolveAlert(alertId, buttonElement) {
+            try {
+                const response = await fetch(`/api/manager/resolve/${alertId}`, {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Reload data
+                    await loadAlerts();
+                    await loadStats();
+                    
+                    // Switch to Resolved tab
+                    switchTab('resolved');
+                }
+            } catch (error) {
+                console.error('Error resolving alert:', error);
+            }
+        }
+
+        // Play beep sound
+        function playBeep() {
+            if (beepAudio) {
+                beepAudio.play().catch(e => console.log('Could not play beep:', e));
+            }
+        }
+
+        // Flash browser title
+        function flashTitle() {
+            let flashCount = 0;
+            const maxFlashes = 10;
+            
+            titleFlashInterval = setInterval(() => {
+                if (flashCount >= maxFlashes) {
+                    clearInterval(titleFlashInterval);
+                    document.title = '👔 Manager Dashboard - MallPulse';
+                    return;
+                }
+                
+                document.title = flashCount % 2 === 0 ? 
+                    '🔴 NEW ALERT! — Manager Dashboard' : 
+                    '👔 Manager Dashboard';
+                flashCount++;
+            }, 1000);
+        }
+
+        // Update last refreshed time
+        function updateLastRefreshed() {
+            document.getElementById('last-refreshed').textContent = `Last refreshed: ${new Date().toLocaleTimeString()}`;
+        }
+
+        // Fetch new alerts for real-time sync
+        function fetchNewAlerts() {
+            fetch('/api/manager/alerts?status=new')
+            .then(r => r.json())  
+            .then(data => {
+                const newAlerts = data.alerts.filter(
+                    a => !a.acknowledged
+                );
+                updateManagerAlertCards(newAlerts);
+                updateManagerStatCards(data);
+            })
+            .catch(err => console.error('Failed to fetch new alerts:', err));
+        }
+
+        // Update manager alert cards
+        function updateManagerAlertCards(newAlerts) {
+            const currentNewAlertIds = new Set(currentAlerts.filter(a => !a.acknowledged && !a.resolved).map(a => a.alert_id));
+            const newAlertIds = new Set(newAlerts.map(a => a.alert_id));
+            
+            // Check for truly new alerts
+            const trulyNewAlerts = newAlerts.filter(alert => !currentNewAlertIds.has(alert.alert_id));
+            
+            if (trulyNewAlerts.length > 0) {
+                // Play beep and flash title for new alerts
+                playBeep();
+                flashTitle();
+                
+                // Add new alerts to current alerts
+                currentAlerts = [...trulyNewAlerts, ...currentAlerts];
+                previousAlertIds = new Set(currentAlerts.map(a => a.alert_id));
+                
+                // Update display
+                updateTabCounts();
+                displayAlerts(currentTab);
+            }
+        }
+
+        // Update manager stat cards
+        function updateManagerStatCards(data) {
+            const stats = data.stats || {};
+            document.getElementById('new-count').textContent = stats.pending_acknowledgement || 0;
+            document.getElementById('acknowledged-count').textContent = stats.acknowledged || 0;
+            document.getElementById('resolved-count').textContent = stats.resolved || 0;
+            document.getElementById('response-time').textContent = stats.avg_response_time_minutes || 0;
+            
+            updateSummary(stats);
+        }
+
+        // Start auto-refresh
+        function startAutoRefresh() {
+            setInterval(() => {
+                loadAlerts();
+                loadStats();
+            }, 10000); // 10 seconds
+            
+            // Additional polling for new alerts
+            setInterval(() => {
+                fetchNewAlerts();
+            }, 10000); // 10 seconds
+        }
+
+        // Logout
+        function logout() {
+            localStorage.removeItem('manager_authenticated');
+            window.location.href = '/manager-login';
+        }
+    </script>
+</body>
+</html>

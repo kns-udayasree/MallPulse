@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MallPulse Admin</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f9; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        h1 { text-align: center; color: #333; }
+        .floor-select { text-align: center; margin: 20px 0; }
+        button { padding: 10px 20px; margin: 5px; background: #17a2b8; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #138496; }
+        #plotly-3d { display: flex; justify-content: center; margin-top: 20px; min-height: 700px; width: 100%; }
+        #plotly-heatmap { display: flex; justify-content: center; margin-top: 20px; min-height: 560px; width: 100%; }
+        a.back { display: block; margin-bottom: 20px; text-decoration: none; color: #00B8A9; font-weight: bold; }
+        a.manager-link { display: block; margin-bottom: 20px; text-decoration: none; color: #e91e8c; font-weight: bold; text-align: right; }
+        
+        /* Alert modal styles */
+        .modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); }
+        .modal-content { background-color: white; margin: 10% auto; padding: 30px; border-radius: 12px; width: 90%; max-width: 500px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .modal-header { font-size: 1.5rem; font-weight: bold; margin-bottom: 20px; color: #333; }
+        .modal-info { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .modal-info-row { margin-bottom: 10px; display: flex; justify-content: space-between; }
+        .modal-info-label { font-weight: 600; color: #666; }
+        .modal-info-value { font-weight: 500; }
+        .severity-warning { color: #ff9800; font-weight: bold; }
+        .severity-critical { color: #f44336; font-weight: bold; }
+        .severity-stampede { color: #9c27b0; font-weight: bold; }
+        .modal-buttons { display: flex; gap: 10px; justify-content: flex-end; }
+        .btn-cancel { background: #6c757d; padding: 10px 20px; border: none; border-radius: 6px; color: white; cursor: pointer; }
+        .btn-send { background: #e91e8c; padding: 10px 20px; border: none; border-radius: 6px; color: white; cursor: pointer; font-weight: bold; }
+        
+        /* Alert log panel styles */
+        .alert-log-section { margin-top: 30px; border: 2px solid #e91e8c; border-radius: 12px; overflow: hidden; }
+        .alert-log-header { background: #e91e8c; color: white; padding: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .alert-log-content { display: none; padding: 20px; background: white; }
+        .alert-stats { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px; font-size: 0.9rem; }
+        .alert-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        .alert-table th, .alert-table td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; font-size: 0.85rem; }
+        .alert-table th { background: #f1f1f1; font-weight: 600; }
+        .alert-row-new { background: #ffebee; transition: background 0.5s ease; }
+        .alert-row-acknowledged { background: #fffde7; transition: background 0.5s ease; }
+        .alert-row-resolved { background: #e8f5e9; transition: background 0.5s ease; }
+        
+        /* Status styling */
+        .status-waiting { color: #f44336; font-weight: bold; }
+        .status-acknowledged { color: #ff9800; }
+        .status-resolved { color: #4caf50; font-weight: bold; }
+        
+        /* Pulsing red dot animation */
+        @keyframes pulse-red {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: #f44336;
+            border-radius: 50%;
+            margin-right: 5px;
+            animation: pulse-red 1.5s infinite;
+        }
+        
+        /* Toast notification */
+        .toast { position: fixed; top: 20px; right: 20px; background: #4caf50; color: white; padding: 15px 20px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 2000; display: none; }
+        
+        /* Stall danger animations */
+        @keyframes stalldanger {
+          0% { box-shadow: 0 0 0 0 rgba(233,30,99,0.7); }
+          70% { box-shadow: 0 0 0 10px rgba(233,30,99,0); }
+          100% { box-shadow: 0 0 0 0 rgba(233,30,99,0); }
+        }
+        .stall-danger {
+          animation: stalldanger 1.5s infinite;
+        }
+        
+        @keyframes shake {
+          0%, 100% { transform: translateX(0); }
+          25% { transform: translateX(-5px); }
+          75% { transform: translateX(5px); }
+        }
+        .notify-shake {
+          animation: shake 0.5s infinite;
+        }
+        
+        /* Notify button styles */
+        .notify-btn {
+          background: #e91e8c;
+          color: white;
+          font-size: 10px;
+          padding: 4px 8px;
+          border-radius: 20px;
+          border: none;
+          cursor: pointer;
+          margin-top: 5px;
+          display: block;
+          width: 100%;
+        }
+        .notify-btn:hover {
+          background: #d81b60;
+        }
+        .notify-btn:disabled {
+          background: #ccc;
+          cursor: not-allowed;
+          animation: none;
+        }
+        .stall-emoji {
+          position: absolute;
+          top: -10px;
+          right: -10px;
+          font-size: 16px;
+        }
+        
+        /* Alert section styles */
+        .alert-section {
+            background: #fff8e1;
+            border: 1.5px solid #ffd54f;
+            border-radius: 12px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .alert-section label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+        .stall-dropdown {
+            width: 220px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1.5px solid #ddd;
+            font-size: 14px;
+            padding: 0 12px;
+        }
+        .send-alert-btn {
+            background: #cccccc;
+            color: white;
+            height: 40px;
+            padding: 0 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            border: none;
+            cursor: not-allowed;
+        }
+        .send-alert-btn.enabled {
+            background: #e91e8c;
+            cursor: pointer;
+        }
+        .send-alert-btn.enabled:hover {
+            background: #d81b60;
+        }
+        .alert-toast {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #e91e8c;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 24px;
+            z-index: 3000;
+            display: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back">← Back to Shopper Dashboard</a>
+        <a href="/manager" target="_blank" class="manager-link">👔 Switch to Manager View →</a>
+        <h1 id="admin-mall-name">🏬 INORBIT MALL — Admin View</h1>
+        
+        <div style="text-align: center; margin-bottom: 20px;">
+            <select id="mall-select" onchange="changeAdminMall()" style="padding: 8px 16px; font-size: 16px; border-radius: 8px; border: 1px solid #ccc;">
+                <option value="Inorbit Mall">Inorbit Mall</option>
+                <option value="Phoenix Palladium">Phoenix Palladium</option>
+                <option value="Express Avenue">Express Avenue</option>
+                <option value="Orion Mall">Orion Mall</option>
+                <option value="South City Mall">South City Mall</option>
+            </select>
+        </div>
+        
+        <div id="plotly-3d"></div>
+
+        <div class="floor-select">
+            <h3>SELECT A FLOOR to view its live heatmap</h3>
+            {% for f in floors %}
+            <button onclick="loadHeatmap({{ f }})">Floor {{ f }}</button>
+            {% endfor %}
+        </div>
+
+        <!-- Alert Section -->
+        <div class="alert-section">
+            <label>⚠️ Send Alert To:</label>
+            <select id="stall-dropdown" class="stall-dropdown" onchange="onStallSelect()">
+                <option value="">-- Select a stall --</option>
+            </select>
+            <button id="send-alert-btn" class="send-alert-btn" onclick="sendStallAlert()" disabled>Send 🔔</button>
+            <button onclick="startDemoMode()" style="background: #9c27b0; color: white; height: 40px; padding: 0 20px; border-radius: 8px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; margin-left: 10px;">🎬 Start Demo Mode</button>
+            <button onclick="clearAllAlerts()" style="background: #f44336; color: white; height: 40px; padding: 0 20px; border-radius: 8px; font-size: 14px; font-weight: 600; border: none; cursor: pointer; margin-left: 10px;">🗑 Clear All Alerts</button>
+        </div>
+
+        <div id="plotly-heatmap"></div>
+
+        <!-- Alert Log Panel -->
+        <div class="alert-log-section">
+            <div class="alert-log-header" onclick="toggleAlertLog()">
+                <span>📋 Alert Log — Manager Communications</span>
+                <span id="alert-log-toggle">▼</span>
+            </div>
+            <div class="alert-log-content" id="alert-log-content">
+                <div class="alert-stats" id="alert-stats">
+                    📊 Today: 0 alerts sent | ⏳ 0 pending | ✅ 0 resolved | ⚡ Avg response: 0 min
+                </div>
+                <table class="alert-table">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Mall</th>
+                            <th>Floor</th>
+                            <th>Stall</th>
+                            <th>Crowd</th>
+                            <th>Severity</th>
+                            <th>Manager</th>
+                            <th>Status</th>
+                            <th>Response Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="alert-table-body">
+                        <!-- Alert rows will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alert Modal -->
+    <div id="alert-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">⚠️ Send Alert to Floor Manager</div>
+            <div class="modal-info" id="modal-info">
+                <!-- Modal info will be populated here -->
+            </div>
+            <div style="margin-bottom: 15px;">
+                <label style="display: block; margin-bottom: 5px; font-weight: 600;">Additional message for manager (optional):</label>
+                <textarea id="admin-message" rows="3" placeholder="e.g. Please deploy 2 additional staff immediately" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; resize: vertical;"></textarea>
+            </div>
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeAlertModal()">Cancel</button>
+                <button class="btn-send" onclick="sendAlert()">Send Alert 🔔</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+    
+    <!-- Alert Toast -->
+    <div id="alert-toast" class="alert-toast"></div>
+
+    <script>
+        // Load the 3D JSON figure passed via templating
+        var fig3dJSON = {{ fig3d_json | safe }};
+        Plotly.newPlot('plotly-3d', fig3dJSON.data, fig3dJSON.layout);
+
+        function changeAdminMall() {
+            const val = document.getElementById("mall-select").value;
+            // Reset stall dropdown
+            const dropdown = document.getElementById('stall-dropdown');
+            dropdown.innerHTML = '<option value="">-- Select a stall --</option>';
+            const sendBtn = document.getElementById('send-alert-btn');
+            sendBtn.disabled = true;
+            sendBtn.classList.remove('enabled');
+            
+            // Reset alert log for new mall
+            window.alertRowsLoaded = false;
+            
+            window.location.href = `/admin?mall=${encodeURIComponent(val)}`;
+        }
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentMall = urlParams.get('mall') || "Inorbit Mall";
+            document.getElementById("mall-select").value = currentMall;
+            document.getElementById("admin-mall-name").innerText = `🏬 ${currentMall.toUpperCase()} — Admin View`;
+        });
+
+        async function loadHeatmap(floor) {
+            const hDiv = document.getElementById('plotly-heatmap');
+            hDiv.innerHTML = "Loading heatmap...";
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const currentMall = urlParams.get('mall') || "Inorbit Mall";
+                const res = await fetch(`/api/heatmap/${floor}?mall=${encodeURIComponent(currentMall)}`);
+                const data = await res.json();
+                hDiv.innerHTML = "";
+                Plotly.newPlot('plotly-heatmap', data.data, data.layout);
+                
+                // Load stalls for dropdown
+                loadStallsForDropdown(floor, currentMall);
+                
+                // Add notify buttons and danger animations after plot is rendered
+                setTimeout(() => addNotifyButtons(floor, currentMall), 1000);
+            } catch (err) {
+                hDiv.innerHTML = "Error loading heatmap.";
+            }
+        }
+
+        // Global variables for alert modal
+        let currentStallData = null;
+        let floorManagers = {};
+
+        // Load floor managers data
+        async function loadFloorManagers() {
+            try {
+                const response = await fetch('/stall_owners.json');
+                floorManagers = await response.json();
+            } catch (err) {
+                console.error('Failed to load floor managers:', err);
+            }
+        }
+
+        // Add danger animations to overcrowded stalls only
+        async function addNotifyButtons(floor, mall) {
+            const annotations = document.querySelectorAll('.annotation');
+            
+            for (let annotation of annotations) {
+                const textElement = annotation.querySelector('text');
+                if (!textElement) continue;
+                
+                const text = textElement.textContent;
+                if (text.includes('ID:')) {
+                    const stallId = text.replace('ID: ', '').trim();
+                    const stallData = await findStallData(stallId, floor, mall);
+                    
+                    if (stallData && stallData.population > 25) {
+                        // Add danger emoji and animation for overcrowded stalls only
+                        const emoji = document.createElement('div');
+                        emoji.className = 'stall-emoji';
+                        emoji.textContent = '🚨';
+                        annotation.appendChild(emoji);
+                        annotation.classList.add('stall-danger');
+                    }
+                }
+            }
+        }
+
+        // Find stall data from current floor data
+        async function findStallData(stallId, floor, mall) {
+            try {
+                const response = await fetch(`/api/stalls?mall=${encodeURIComponent(mall)}`);
+                const stalls = await response.json();
+                
+                const stall = stalls.find(s => s.stall_id === stallId && s.floor === floor);
+                if (stall) {
+                    return {
+                        stallId: stallId,
+                        floor: floor,
+                        mall: mall,
+                        population: stall.population,
+                        severity: stall.population <= 15 ? 'Warning' : stall.population <= 25 ? 'Critical' : 'Stampede Risk'
+                    };
+                }
+            } catch (err) {
+                console.error('Failed to fetch stall data:', err);
+            }
+            
+            // Fallback to mock data if API fails
+            const population = Math.floor(Math.random() * 40) + 10;
+            return {
+                stallId: stallId,
+                floor: floor,
+                mall: mall,
+                population: population,
+                severity: population <= 15 ? 'Warning' : population <= 25 ? 'Critical' : 'Stampede Risk'
+            };
+        }
+
+        // Open alert modal
+        async function openAlertModal(stallData) {
+            currentStallData = stallData;
+            
+            // Get floor manager info
+            const managerInfo = floorManagers[stallData.mall]?.floor_managers?.[stallData.floor] || 
+                              {name: 'Unknown', phone: 'N/A'};
+            
+            // Calculate severity
+            let severityClass = 'severity-warning';
+            let severityEmoji = '🟡';
+            if (stallData.population > 25) {
+                severityClass = 'severity-stampede';
+                severityEmoji = '🚨';
+            } else if (stallData.population > 15) {
+                severityClass = 'severity-critical';
+                severityEmoji = '🔴';
+            }
+            
+            // Populate modal info
+            const modalInfo = document.getElementById('modal-info');
+            modalInfo.innerHTML = `
+                <div class="modal-info-row">
+                    <span class="modal-info-label">Mall:</span>
+                    <span class="modal-info-value">${stallData.mall}</span>
+                </div>
+                <div class="modal-info-row">
+                    <span class="modal-info-label">Floor:</span>
+                    <span class="modal-info-value">${stallData.floor}</span>
+                </div>
+                <div class="modal-info-row">
+                    <span class="modal-info-label">Stall:</span>
+                    <span class="modal-info-value">${stallData.stallId}</span>
+                </div>
+                <div class="modal-info-row">
+                    <span class="modal-info-label">Current crowd:</span>
+                    <span class="modal-info-value">${stallData.population} people</span>
+                </div>
+                <div class="modal-info-row">
+                    <span class="modal-info-label">Severity:</span>
+                    <span class="modal-info-value ${severityClass}">${severityEmoji} ${stallData.severity}</span>
+                </div>
+                <div class="modal-info-row">
+                    <span class="modal-info-label">Floor Manager:</span>
+                    <span class="modal-info-value">${managerInfo.name} (${managerInfo.phone})</span>
+                </div>
+            `;
+            
+            // Clear message and show modal
+            document.getElementById('admin-message').value = '';
+            document.getElementById('alert-modal').style.display = 'block';
+        }
+
+        // Close alert modal
+        function closeAlertModal() {
+            document.getElementById('alert-modal').style.display = 'none';
+            currentStallData = null;
+        }
+
+        // Send alert
+        async function sendAlert() {
+            if (!currentStallData) return;
+            
+            const adminMessage = document.getElementById('admin-message').value;
+            
+            try {
+                const response = await fetch('/api/manager/notify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        mall_name: currentStallData.mall,
+                        floor: currentStallData.floor,
+                        stall_id: currentStallData.stallId,
+                        population: currentStallData.population,
+                        admin_message: adminMessage
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Get manager name for toast
+                    const managerInfo = floorManagers[currentStallData.mall]?.floor_managers?.[currentStallData.floor] || 
+                                      {name: 'Manager'};
+                    
+                    showToast(`✅ Alert sent to ${managerInfo.name} for Floor ${currentStallData.floor}`);
+                    closeAlertModal();
+                    
+                    // Disable button for 5 minutes
+                    disableNotifyButton(currentStallData.stallId);
+                    
+                    // Refresh alert log
+                    loadAlertLog();
+                    loadAlertStats();
+                } else {
+                    showToast('Failed to send alert', 'error');
+                }
+            } catch (err) {
+                showToast('Error sending alert', 'error');
+            }
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.style.background = type === 'error' ? '#f44336' : '#4caf50';
+            toast.style.display = 'block';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 4000);
+        }
+
+        // Disable notify button temporarily
+        function disableNotifyButton(stallId) {
+            const buttons = document.querySelectorAll('.notify-btn');
+            buttons.forEach(button => {
+                if (button.textContent.includes('Notify Manager')) {
+                    button.textContent = '✅ Alert Sent';
+                    button.disabled = true;
+                    
+                    setTimeout(() => {
+                        button.textContent = '🔔 Notify Manager';
+                        button.disabled = false;
+                    }, 5 * 60 * 1000); // 5 minutes
+                }
+            });
+        }
+
+        // Toggle alert log
+        function toggleAlertLog() {
+            const content = document.getElementById('alert-log-content');
+            const toggle = document.getElementById('alert-log-toggle');
+            
+            if (content.style.display === 'block') {
+                content.style.display = 'none';
+                toggle.textContent = '▼';
+            } else {
+                content.style.display = 'block';
+                toggle.textContent = '▲';
+                loadAlertLog();
+                loadAlertStats();
+            }
+        }
+
+        // Load alert log
+        async function loadAlertLog() {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const currentMall = urlParams.get('mall') || "Inorbit Mall";
+                
+                const response = await fetch(`/api/manager/alerts?mall=${encodeURIComponent(currentMall)}`);
+                const data = await response.json();
+                const alerts = data.alerts || [];
+                
+                const tbody = document.getElementById('alert-table-body');
+                
+                // Show empty state message if no alerts
+                if (alerts.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="9" style="text-align: center; padding: 20px; color: #666;">No alerts for ${currentMall} yet. Select a stall above and click Send 🔔</td></tr>`;
+                    return;
+                }
+                
+                // Clear existing rows for fresh load
+                if (!window.alertRowsLoaded) {
+                    tbody.innerHTML = '';
+                    window.alertRowsLoaded = true;
+                }
+                
+                alerts.forEach(alert => {
+                    updateOrCreateAlertRow(alert, tbody);
+                });
+            } catch (err) {
+                console.error('Failed to load alert log:', err);
+            }
+        }
+        
+        // Update or create alert row
+        function updateOrCreateAlertRow(alert, tbody) {
+            let row = tbody.querySelector(`tr[data-alert-id="${alert.id}"]`);
+            const isNewRow = !row;
+            
+            if (isNewRow) {
+                row = document.createElement('tr');
+                row.setAttribute('data-alert-id', alert.id);
+                tbody.insertBefore(row, tbody.firstChild);
+            }
+            
+            // Determine row class and status
+            let rowClass = '';
+            let statusHtml = '';
+            
+            if (alert.resolved) {
+                rowClass = 'alert-row-resolved';
+                statusHtml = '<span class="status-resolved">✅ Resolved</span>';
+            } else if (alert.acknowledged) {
+                rowClass = 'alert-row-acknowledged';
+                statusHtml = '<span class="status-acknowledged">👀 Acknowledged</span>';
+            } else {
+                rowClass = 'alert-row-new';
+                statusHtml = '<span class="status-waiting"><span class="pulse-dot"></span>⏳ Waiting...</span>';
+            }
+            
+            row.className = rowClass;
+            
+            // Get manager name
+            const managerInfo = floorManagers[alert.mall_name]?.floor_managers?.[alert.floor] || 
+                              {name: 'Unknown'};
+            
+            const responseTime = alert.response_time_minutes ? `${alert.response_time_minutes} min` : '—';
+            
+            if (isNewRow) {
+                row.innerHTML = `
+                    <td>${alert.sent_at}</td>
+                    <td>${alert.mall_name}</td>
+                    <td>${alert.floor}</td>
+                    <td>${alert.stall_id}</td>
+                    <td>${alert.population}</td>
+                    <td>${alert.severity}</td>
+                    <td>${managerInfo.name}</td>
+                    <td>${statusHtml}</td>
+                    <td>${responseTime}</td>
+                `;
+            } else {
+                // Update only status and response time for existing rows
+                const statusCell = row.cells[7];
+                const responseTimeCell = row.cells[8];
+                
+                if (statusCell.innerHTML !== statusHtml) {
+                    statusCell.innerHTML = statusHtml;
+                }
+                
+                if (responseTimeCell.textContent !== responseTime) {
+                    responseTimeCell.textContent = responseTime;
+                }
+            }
+        }
+
+        // Load alert statistics
+        async function loadAlertStats() {
+            try {
+                const urlParams = new URLSearchParams(window.location.search);
+                const currentMall = urlParams.get('mall') || "Inorbit Mall";
+                
+                const response = await fetch(`/api/manager/stats?mall=${encodeURIComponent(currentMall)}`);
+                const stats = await response.json();
+                
+                const statsDiv = document.getElementById('alert-stats');
+                statsDiv.innerHTML = `📊 Today: ${stats.total_alerts_today} alerts | ⏳ ${stats.pending_acknowledgement} pending | ✅ ${stats.resolved} resolved | ⚡ Avg: ${stats.avg_response_time_minutes} min`;
+            } catch (err) {
+                console.error('Failed to load alert stats:', err);
+            }
+        }
+
+        // Get current selected mall
+        function getCurrentSelectedMall() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('mall') || "Inorbit Mall";
+        }
+
+        // Fetch and update alert log
+        function fetchAndUpdateAlertLog() {
+            const selectedMall = getCurrentSelectedMall();
+            fetch('/api/manager/alerts?mall=' + encodeURIComponent(selectedMall))
+            .then(r => r.json())
+            .then(data => {
+                updateAlertTable(data.alerts || []);
+                updateStatsBar(data);
+            })
+            .catch(err => console.error('Failed to fetch alerts:', err));
+        }
+
+        // Update alert table with smart updates
+        function updateAlertTable(alerts) {
+            const tbody = document.getElementById('alert-table-body');
+            
+            // Show empty state message if no alerts
+            if (alerts.length === 0) {
+                if (!tbody.querySelector('td[colspan="9"]')) {
+                    tbody.innerHTML = `<tr><td colspan="9" style="text-align: center; padding: 20px; color: #666;">No alerts for ${getCurrentSelectedMall()} yet. Select a stall above and click Send 🔔</td></tr>`;
+                }
+                return;
+            }
+            
+            // Initialize if first load
+            if (!window.alertRowsLoaded) {
+                tbody.innerHTML = '';
+                window.alertRowsLoaded = true;
+            }
+            
+            alerts.forEach(alert => {
+                updateOrCreateAlertRow(alert, tbody);
+            });
+        }
+
+        // Update stats bar
+        function updateStatsBar(data) {
+            const statsDiv = document.getElementById('alert-stats');
+            const stats = data.stats || {};
+            statsDiv.innerHTML = `📊 Today: ${stats.total_alerts_today || 0} alerts | ⏳ ${stats.pending_acknowledgement || 0} pending | ✅ ${stats.resolved || 0} resolved | ⚡ Avg: ${stats.avg_response_time_minutes || 0} min`;
+        }
+
+        // Auto-refresh every 10 seconds
+        setInterval(function() {
+            if (document.getElementById('alert-log-content').style.display === 'block') {
+                fetchAndUpdateAlertLog();
+            }
+        }, 10000);
+
+        // Alert section functionality
+        let currentFloor = null;
+        let currentMall = null;
+
+        // Load stalls for dropdown
+        async function loadStallsForDropdown(floor, mall) {
+            currentFloor = floor;
+            currentMall = mall;
+            
+            const dropdown = document.getElementById('stall-dropdown');
+            dropdown.innerHTML = '<option value="">-- Select a stall --</option>';
+            
+            try {
+                const response = await fetch(`/api/stalls?mall=${encodeURIComponent(mall)}&floor=${floor}`);
+                const stalls = await response.json();
+                
+                stalls.forEach(stall => {
+                    const option = document.createElement('option');
+                    option.value = stall.stall_id;
+                    
+                    let emoji = '🟢';
+                    if (stall.population > 15) emoji = '🔴';
+                    else if (stall.population > 5) emoji = '🟡';
+                    
+                    option.textContent = `${stall.stall_id} (${stall.population} people ${emoji})`;
+                    option.dataset.population = stall.population;
+                    dropdown.appendChild(option);
+                });
+            } catch (err) {
+                console.error('Failed to load stalls:', err);
+            }
+        }
+
+        // Handle stall selection
+        function onStallSelect() {
+            const dropdown = document.getElementById('stall-dropdown');
+            const sendBtn = document.getElementById('send-alert-btn');
+            
+            if (dropdown.value) {
+                sendBtn.disabled = false;
+                sendBtn.classList.add('enabled');
+            } else {
+                sendBtn.disabled = true;
+                sendBtn.classList.remove('enabled');
+            }
+        }
+
+        // Send stall alert
+        async function sendStallAlert() {
+            const dropdown = document.getElementById('stall-dropdown');
+            const selectedOption = dropdown.options[dropdown.selectedIndex];
+            
+            if (!dropdown.value) return;
+            
+            const population = parseInt(selectedOption.dataset.population);
+            let severity;
+            if (population >= 16 && population <= 25) severity = 'Warning';
+            else if (population >= 26 && population <= 35) severity = 'Critical';
+            else if (population > 35) severity = 'Stampede Risk';
+            else severity = 'Warning';
+            
+            const sentAt = new Date().toISOString().slice(0, 19).replace('T', ' ');
+            
+            try {
+                // Get manager details
+                const managerResponse = await fetch(`/api/manager/floor-info?mall=${encodeURIComponent(currentMall)}&floor=${currentFloor}`);
+                const managerData = await managerResponse.json();
+                const managerName = managerData.manager_name || 'Manager';
+                
+                // Send alert
+                const response = await fetch('/api/manager/notify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        mall_name: currentMall,
+                        floor: currentFloor,
+                        stall_id: dropdown.value,
+                        population: population,
+                        admin_message: '',
+                        severity: severity
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Show success toast
+                    showAlertToast(`✅ Alert sent to ${managerName} — Floor ${currentFloor} | ${dropdown.value} | ${severity}`);
+                    
+                    // Reset dropdown
+                    dropdown.value = '';
+                    onStallSelect();
+                    
+                    // Refresh alert log
+                    loadAlertLog();
+                    loadAlertStats();
+                } else {
+                    showAlertToast('Failed to send alert', 'error');
+                }
+            } catch (err) {
+                console.error('Error sending alert:', err);
+                showAlertToast('Error sending alert', 'error');
+            }
+        }
+
+        // Show alert toast
+        function showAlertToast(message, type = 'success') {
+            const toast = document.getElementById('alert-toast');
+            toast.textContent = message;
+            toast.style.background = type === 'error' ? '#f44336' : '#e91e8c';
+            toast.style.display = 'block';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 5000);
+        }
+
+        // Start Demo Mode - generate 5 alerts
+        async function startDemoMode() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentMall = urlParams.get('mall') || "Inorbit Mall";
+            
+            try {
+                // Get stalls for each floor
+                const floor0Stalls = await fetch(`/api/stalls?mall=${encodeURIComponent(currentMall)}&floor=0`).then(r => r.json());
+                const floor1Stalls = await fetch(`/api/stalls?mall=${encodeURIComponent(currentMall)}&floor=1`).then(r => r.json());
+                const floor2Stalls = await fetch(`/api/stalls?mall=${encodeURIComponent(currentMall)}&floor=2`).then(r => r.json());
+                const floor3Stalls = await fetch(`/api/stalls?mall=${encodeURIComponent(currentMall)}&floor=3`).then(r => r.json());
+                
+                // Generate 5 demo alerts
+                const demoAlerts = [
+                    {
+                        floor: 0,
+                        stall_id: floor0Stalls[0]?.stall_id || 'Demo Stall 0',
+                        population: 32,
+                        message: "Immediate crowd control needed"
+                    },
+                    {
+                        floor: 1,
+                        stall_id: floor1Stalls[1]?.stall_id || 'Demo Stall 1',
+                        population: 28,
+                        message: "Deploy additional staff at entrance"
+                    },
+                    {
+                        floor: 2,
+                        stall_id: floor2Stalls[0]?.stall_id || 'Demo Stall 2',
+                        population: 38,
+                        message: "Critical — restrict entry immediately"
+                    },
+                    {
+                        floor: 3,
+                        stall_id: floor3Stalls[0]?.stall_id || 'Demo Stall 3',
+                        population: 19,
+                        message: "Monitor closely — crowd increasing"
+                    },
+                    {
+                        floor: 0,
+                        stall_id: floor0Stalls[floor0Stalls.length - 1]?.stall_id || 'Demo Stall 4',
+                        population: 41,
+                        message: "URGENT — stampede risk detected"
+                    }
+                ];
+                
+                // Send each alert
+                for (const alert of demoAlerts) {
+                    await fetch('/api/manager/notify', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            mall_name: currentMall,
+                            floor: alert.floor,
+                            stall_id: alert.stall_id,
+                            population: alert.population,
+                            admin_message: alert.message,
+                            severity: alert.population <= 25 ? 'Warning' : alert.population <= 35 ? 'Critical' : 'Stampede Risk'
+                        })
+                    });
+                }
+                
+                // Show success toast and refresh
+                showAlertToast(`🎬 Demo Mode: 5 alerts generated for ${currentMall}`);
+                loadAlertLog();
+                loadAlertStats();
+                
+            } catch (err) {
+                console.error('Demo mode error:', err);
+                showAlertToast('Demo mode failed', 'error');
+            }
+        }
+
+        // Clear all alerts
+        async function clearAllAlerts() {
+            try {
+                const response = await fetch('/api/manager/clear-alerts', {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    // Reset stats bar
+                    const statsDiv = document.getElementById('alert-stats');
+                    statsDiv.innerHTML = '📊 Today: 0 alerts | ⏳ 0 pending | ✅ 0 resolved | ⚡ Avg: — min';
+                    
+                    // Clear alert log table
+                    const tbody = document.getElementById('alert-table-body');
+                    tbody.innerHTML = '<tr><td colspan="9" style="text-align: center; padding: 20px; color: #666;">No alerts yet. Select a stall above and click Send 🔔</td></tr>';
+                    
+                    showAlertToast('🗑 All alerts cleared');
+                } else {
+                    showAlertToast('Failed to clear alerts', 'error');
+                }
+            } catch (err) {
+                console.error('Clear alerts error:', err);
+                showAlertToast('Error clearing alerts', 'error');
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const currentMall = urlParams.get('mall') || "Inorbit Mall";
+            document.getElementById("mall-select").value = currentMall;
+            document.getElementById("admin-mall-name").innerText = `🏬 ${currentMall.toUpperCase()} — Admin View`;
+            
+            // Load floor managers data
+            loadFloorManagers();
+            
+            // Close modal when clicking outside
+            window.onclick = function(event) {
+                const modal = document.getElementById('alert-modal');
+                if (event.target === modal) {
+                    closeAlertModal();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

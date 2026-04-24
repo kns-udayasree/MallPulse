@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - MallPulse</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .setting-group { background: var(--card-bg); padding: 16px; border-radius: 12px; margin-bottom: 16px; border: 1px solid var(--border); box-shadow: 0 2px 4px rgba(0,0,0,0.02);}
+        .setting-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+        .setting-row:last-child { margin-bottom: 0; }
+        .setting-label { font-weight: 500; color: var(--text-main);}
+        select, input[type="time"] { padding: 8px; border-radius: 8px; border: 1px solid var(--border); font-family: inherit; background: var(--bg); color: var(--text-main);}
+        
+        /* Toggle Switch */
+        .switch { position: relative; display: inline-block; width: 44px; height: 24px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .4s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 16px; width: 16px; left: 4px; bottom: 4px; background-color: white; transition: .4s; border-radius: 50%; }
+        input:checked + .slider { background-color: var(--teal); }
+        input:checked + .slider:before { transform: translateX(20px); }
+    </style>
+</head>
+<body>
+    <script>
+        if(localStorage.getItem('mallpulse_darkmode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+    <header class="top-nav">
+        <div class="nav-content">
+            <div class="nav-left">
+                <a href="/dashboard" style="text-decoration: none; color: var(--teal); margin-right: 8px; font-weight: bold;">←</a>
+                <span class="logo">⚙️ Settings</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="margin-top: 24px;">
+        <div class="setting-group">
+            <div class="setting-row">
+                <span class="setting-label">Default Mall</span>
+                <select id="mall-select">
+                    <option value="inorbit">Inorbit Mall</option>
+                    <option value="orbit">Orbit Mall</option>
+                    <option value="forum">Forum Mall</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="setting-group">
+            <div class="setting-row">
+                <span class="setting-label">Dark Mode</span>
+                <label class="switch">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </div>
+        
+        <div class="setting-group">
+            <div class="setting-row">
+                <span class="setting-label">Enable Notifications</span>
+                <label class="switch">
+                    <input type="checkbox" id="notif-toggle" checked>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="setting-row" style="margin-top:16px;">
+                <span class="setting-label">Quiet Hours Start</span>
+                <input type="time" id="quiet-start" value="22:00">
+            </div>
+            <div class="setting-row">
+                <span class="setting-label">Quiet Hours End</span>
+                <input type="time" id="quiet-end" value="08:00">
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 20px; border-top: 1px dashed var(--border);">
+            <a href="/admin" style="color: var(--text-light); text-decoration: none; font-weight: 500;">🔒 Admin View</a>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            if(localStorage.getItem('mallpulse_darkmode') === 'true') {
+                document.getElementById('dark-mode-toggle').checked = true;
+            }
+            
+            // Default mall
+            const savedMall = localStorage.getItem('mallpulse_mall') || 'inorbit';
+            document.getElementById('mall-select').value = savedMall;
+            
+            document.getElementById('mall-select').addEventListener('change', (e) => {
+                localStorage.setItem('mallpulse_mall', e.target.value);
+            });
+            
+            // Dark mode toggle
+            document.getElementById('dark-mode-toggle').addEventListener('change', (e) => {
+                const isDark = e.target.checked;
+                localStorage.setItem('mallpulse_darkmode', isDark);
+                if(isDark) {
+                    document.body.classList.add('dark-mode');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

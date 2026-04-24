@@ -1,0 +1,62 @@
+{
+  "Inorbit Mall": {
+    "floor_managers": {
+      "0": {"name": "Priya Menon", 
+            "phone": "9876500001"},
+      "1": {"name": "Arjun Nair", 
+            "phone": "9876500002"},
+      "2": {"name": "Sneha Reddy", 
+            "phone": "9876500003"},
+      "3": {"name": "Karthik Iyer", 
+            "phone": "9876500004"}
+    }
+  },
+  "Phoenix Palladium": {
+    "floor_managers": {
+      "0": {"name": "Rohit Sharma", 
+            "phone": "9876500005"},
+      "1": {"name": "Deepa Pillai", 
+            "phone": "9876500006"},
+      "2": {"name": "Vijay Kumar", 
+            "phone": "9876500007"},
+      "3": {"name": "Anita Desai", 
+            "phone": "9876500008"}
+    }
+  },
+  "Express Avenue": {
+    "floor_managers": {
+      "0": {"name": "Ramesh Babu", 
+            "phone": "9876500009"},
+      "1": {"name": "Lakshmi Priya", 
+            "phone": "9876500010"},
+      "2": {"name": "Suresh Kumar", 
+            "phone": "9876500011"},
+      "3": {"name": "Meena Kumari", 
+            "phone": "9876500012"}
+    }
+  },
+  "Orion Mall": {
+    "floor_managers": {
+      "0": {"name": "Naveen Gowda", 
+            "phone": "9876500013"},
+      "1": {"name": "Pooja Rao", 
+            "phone": "9876500014"},
+      "2": {"name": "Ravi Shankar", 
+            "phone": "9876500015"},
+      "3": {"name": "Divya Nair", 
+            "phone": "9876500016"}
+    }
+  },
+  "South City Mall": {
+    "floor_managers": {
+      "0": {"name": "Subhash Das", 
+            "phone": "9876500017"},
+      "1": {"name": "Puja Ghosh", 
+            "phone": "9876500018"},
+      "2": {"name": "Arnab Sen", 
+            "phone": "9876500019"},
+      "3": {"name": "Rima Chatterjee", 
+            "phone": "9876500020"}
+    }
+  }
+}
