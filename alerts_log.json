@@ -287,6 +287,38 @@
       "response_time_minutes": null,
       "resolved": false,
       "resolved_at": null
+    },
+    {
+      "alert_id": "1777086230",
+      "mall_name": "Orion Mall",
+      "floor": 2,
+      "stall_id": "Food Court",
+      "population": 38,
+      "severity": "Stampede Risk",
+      "admin_message": "Auto-generated alert: High crowd density detected",
+      "sent_by": "System",
+      "sent_at": "2026-04-25 08:33:50",
+      "acknowledged": false,
+      "acknowledged_at": null,
+      "response_time_minutes": null,
+      "resolved": false,
+      "resolved_at": null
+    },
+    {
+      "alert_id": "1777086230",
+      "mall_name": "Orion Mall",
+      "floor": 2,
+      "stall_id": "United Colors of Benetton",
+      "population": 38,
+      "severity": "Stampede Risk",
+      "admin_message": "Auto-generated alert: High crowd density detected",
+      "sent_by": "System",
+      "sent_at": "2026-04-25 08:33:50",
+      "acknowledged": false,
+      "acknowledged_at": null,
+      "response_time_minutes": null,
+      "resolved": false,
+      "resolved_at": null
     }
   ]
 }
